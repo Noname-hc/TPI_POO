@@ -1,0 +1,11 @@
+El logger está isto
+
+Hay que realizar los cambios necesarios en 
+class enum LogDomain en base a los cpp en donde se use el Logger
+
+Se debe crear una instancia de log de la siguiente forma:
+Logger& logger = Logger::getInstance();
+
+
+Luego si se quiere usar el logger
+logger.log(LogLevel::INFO, LogDomain::MAIN, "Inicio de Programa");

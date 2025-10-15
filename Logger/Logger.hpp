@@ -1,0 +1,34 @@
+#pragma once
+#include <string>
+#include <fstream>
+
+enum class LogDomain
+{
+    MAIN
+    //, editar según sea necesario
+};
+
+enum class LogLevel
+{
+    INFO,
+    WARNING,
+    ERROR,
+    DEBUG
+};
+
+class Logger
+{
+    private:
+        std::ofstream logFile;
+        Logger();
+        ~Logger();
+        Logger(const Logger&) = delete; // Cómo pingo funciona esto?
+        Logger& operator=(const Logger&) = delete;
+        std::string obtenerHoraActual();
+        std::string nivelToString(LogLevel);
+        std::string domainToString(LogDomain);
+
+    public:
+        static Logger& getInstance();
+        void log(LogLevel, LogDomain, const std::string);
+};
