@@ -45,6 +45,7 @@ std::string Logger::domainToString(LogDomain dom)
     switch (dom) 
     {
         case LogDomain::MAIN: return "MAIN";
+        case LogDomain::G_Code: return "G_Code";
         //case domain::...: return "..."; // editar según sea necesario
         default: return "UNKNOWN";
     }
@@ -71,4 +72,26 @@ void Logger::log(LogLevel nivel,LogDomain dominio, const std::string mensaje)
     {
         std::cerr << "No se pudo escribir en el archivo de log." << std::endl;
     }
+}
+
+
+void Logger::VerLog(LogLevel nivel){
+    if(logFile.is_open()){
+        logFile.close();
+    }
+    std::fstream fs("../logs/Logger.log", std::ios::in);
+
+    std::string lvl = nivelToString(nivel);
+    size_t pos = 0;
+
+    std::string str_aux = "";
+    while (getline(fs, str_aux)){
+        pos = str_aux.find("["+lvl+"]");
+
+        if(pos != std::string::npos){
+            std::cout << str_aux << std::endl;
+        }
+    }
+    
+    fs.close();
 }

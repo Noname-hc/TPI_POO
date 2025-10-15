@@ -4,7 +4,7 @@
 
 enum class LogDomain
 {
-    MAIN
+    MAIN,G_Code
     //, editar según sea necesario
 };
 
@@ -31,4 +31,5 @@ class Logger
     public:
         static Logger& getInstance();
         void log(LogLevel, LogDomain, const std::string);
+        void VerLog(LogLevel);
 };

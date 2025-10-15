@@ -3,25 +3,53 @@
 #include <vector>
 
 #include "G_code.h"
+#include "../Logger/Logger.hpp"
 
-G_Code::G_Code(std::string &pos_str){
+G_Code::G_Code(const std::string &pos_str){
     this->pos_str = pos_str;
+}
+G_Code::G_Code(const std::string &pos_str, Logger &log){
+    this->log = &log;
 }
 G_Code::~G_Code(){
     this->pos_str.clear();
 }
-void G_Code::setPosicion(std::string &posicion_str){
+void G_Code::setPosicion(const std::string &posicion_str){
     this->pos_str = posicion_str;
 }
 
+void G_Code::setLog(Logger &log){
+    this->log = &log;
+}
 
+//==============================================================================================
 void G_Code::Transformar_Pos(){
-    if(pos_str.size() == 0){
 
-        return;
+    if(pos_str.size() == 0){
+        if(log != nullptr){
+            this->log->log(LogLevel::ERROR, LogDomain::G_Code, "No se seteo una posicion (string)");
+        }
+        throw "No se seteo una posicion (string)";
     }
+
     std::string str_aux = "";
 
-    str_aux = pos_str;
+    // Falta ver bien el servidor para continuar con la implementacion
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
+    // ===============================================================
 
 }
+
