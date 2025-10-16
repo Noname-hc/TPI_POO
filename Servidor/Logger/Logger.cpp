@@ -20,6 +20,18 @@ Logger::~Logger()
         }
 }
 
+void Logger::abrirLogger(){
+    const std::string path = "logs/Logger.log";
+    if(logFile.is_open()){
+        logFile.close();
+    }
+    logFile.clear(); // limpiar flags
+    logFile.open(path, std::ios::app);
+    if(!logFile.is_open()){
+        std::cerr << "No se pudo abrir " << path << std::endl;
+    }
+}
+
 std::string Logger::obtenerHoraActual() 
 {
     std::time_t ahora = std::time(nullptr);
@@ -60,9 +72,12 @@ Logger& Logger::getInstance()
 
 void Logger::log(LogLevel nivel,LogDomain dominio, const std::string mensaje)
 {
+    abrirLogger();
     std::string hora = obtenerHoraActual();
     std::string status = nivelToString(nivel);
     std::string domain = domainToString(dominio);
+
+
     if(logFile.is_open())
     {
         logFile << "[" << hora << "] [" << status << "] [" << domain <<"] " << mensaje << std::endl;

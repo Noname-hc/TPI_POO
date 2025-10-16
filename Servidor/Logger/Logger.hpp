@@ -4,7 +4,8 @@
 
 enum class LogDomain
 {
-    MAIN,G_Code
+    MAIN,
+    G_Code
     //, editar según sea necesario
 };
 
@@ -22,7 +23,7 @@ class Logger
         std::ofstream logFile;
         Logger();
         ~Logger();
-        Logger(const Logger&) = delete; // Cómo pingo funciona esto?
+        Logger(const Logger&) = delete;
         Logger& operator=(const Logger&) = delete;
         std::string obtenerHoraActual();
         std::string nivelToString(LogLevel);
@@ -32,4 +33,5 @@ class Logger
         static Logger& getInstance();
         void log(LogLevel, LogDomain, const std::string);
         void VerLog(LogLevel);
+        void abrirLogger();
 };
