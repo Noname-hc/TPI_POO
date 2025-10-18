@@ -17,6 +17,5 @@ namespace XmlRpc {
     if (_server) _server->removeMethod(this);
   }
 
-  
 
 } // namespace XmlRpc
