@@ -5,7 +5,10 @@
 #include <iostream>
 #include <vector>
 
-#include "../Servidor/Logger/Logger.hpp"
+#include "../Logger/Logger.hpp"
+#include "../../Libreria_RPC/XmlRpc.h"
+
+using namespace XmlRpc;
 
 enum class comandos
 {
@@ -29,20 +32,19 @@ enum class comandos
     Reporte_finales = 1000119,
 };
 
-class G_Code{
+
+class G_Code: public XmlRpcServerMethod{
     public:
-        G_Code(Logger *log = nullptr);
+        G_Code(Logger *log = nullptr, XmlRpcServer *S = nullptr);
 
         ~G_Code();
 
         void setLog(Logger *log = nullptr);
         // ==============================================================================================================
-        std::string Interpretar(comandos cmnd, const std::string &posicion = "");
-        
+        void execute(XmlRpcValue& params, XmlRpcValue& result);
+        std::string help();
     private:
-        Logger *log = nullptr;
-
-
+        Logger *log;
 };
 
 
