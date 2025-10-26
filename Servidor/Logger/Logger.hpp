@@ -21,17 +21,25 @@ class Logger
 {
     private:
         std::ofstream logFile;
-        Logger();
-        ~Logger();
+        std::string path;
+
         Logger(const Logger&) = delete;
         Logger& operator=(const Logger&) = delete;
-        std::string obtenerHoraActual();
         std::string nivelToString(LogLevel);
         std::string domainToString(LogDomain);
 
     public:
-        static Logger& getInstance();
+        Logger(const std::string &path);
+        ~Logger();
+        std::string obtenerHoraActual();
         void log(LogLevel, LogDomain, const std::string);
+
+        void VerLog();
         void VerLog(LogLevel);
+        void VerLog(LogLevel nivel, LogDomain dominio);
+
+        std::string getMsj(LogLevel nivel, LogDomain dominio);
+        std::string getMsj(LogLevel nivel);
+        std::string getMsj();
         void abrirLogger();
 };

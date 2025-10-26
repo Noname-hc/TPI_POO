@@ -78,6 +78,18 @@ XmlRpcServerConnection::readHeader()
     if (_header.length() > 0)
       XmlRpcUtil::error("XmlRpcServerConnection::readHeader: error while reading header (%s).",XmlRpcSocket::getErrorMsg().c_str());
     return false;
+
+    // ============================================== Edicion personal =========================================================
+    // =========================================================================================================================
+    /*std::string mensaje_crudo =_header;
+    size_t pos = 0;
+
+    pos = mensaje_crudo.find("<lvl>");
+    if(pos != std::string::npos){
+        throw mensaje_crudo.substr(pos+1+5, mensaje_crudo.find("</lvl>")-(pos+1+5));
+    }*/
+    // =========================================================================================================================
+    // =========================================================================================================================
   }
 
   XmlRpcUtil::log(4, "XmlRpcServerConnection::readHeader: read %d bytes.", _header.length());
