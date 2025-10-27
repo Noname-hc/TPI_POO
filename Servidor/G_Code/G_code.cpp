@@ -1,6 +1,7 @@
 #include <cstring>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "G_code.h"
 #include "../Logger/Logger.hpp"
@@ -11,10 +12,16 @@ G_Code::G_Code(Logger *log, XmlRpcServer *S):XmlRpcServerMethod("G_Code",S){
 }
 
 G_Code::~G_Code(){
+    if(log != nullptr){
+        log->~Logger();
+    }
     this->log = nullptr;
 }
 void G_Code::setLog(Logger *log){
     this->log = log;
+}
+void G_Code::setPath(const std::string &path){
+    this->path = path;
 }
 //==============================================================================================
 void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es un entero params[1] es un string x,y,z (no hace falta poner si no hay que mover nada)
@@ -41,12 +48,14 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         throw XmlRpc::XmlRpcException("parametros debe contener entero, string");
     }
 
-    std::string str_aux = "";
+    std::string str_aux = params[1];
+    str_aux.erase(std::remove(str_aux.begin(), str_aux.end(), ' '), str_aux.end());// eliminamos los espacios
+
     std::string str_aux_G0 = "";
     std::vector<double> valores = {};
 
     int a = params[0];
-    std::string posicion = params[1];
+    std::string posicion = str_aux;
     size_t pos = 0;
 
     if(a < 1000){ // Comandos G
@@ -55,7 +64,11 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
             case 0:
                 str_aux = posicion;
                 if(str_aux.size() == 0){
-                    log->log(LogLevel::ERROR, LogDomain::G_Code, "No se especifico posicion para G0");
+                    try{
+                        log->log(LogLevel::ERROR, LogDomain::G_Code, "No se especifico posicion para G0");
+                    } catch(std::runtime_error &e){
+                        std::cout << e.what();
+                    }
                     throw XmlRpc::XmlRpcException("No se especifico posicion para G0");
                 }
                 
@@ -63,7 +76,12 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                     pos = str_aux.find(",");
 
                     if(pos == std::string::npos){
-                        log->log(LogLevel::ERROR, LogDomain::G_Code, "Posicion para G0 invalida");
+                        try{
+                            log->log(LogLevel::ERROR, LogDomain::G_Code, "Posicion para G0 invalida");
+                        } catch(std::runtime_error &e){
+                            std::cout << e.what();
+                        }
+                        
                         throw XmlRpc::XmlRpcException("Posicion para G0 invalida");
                     }
 
@@ -72,7 +90,12 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                         valores.push_back(std::stod(str_aux_G0));
 
                     }catch(...){
-                        log->log(LogLevel::ERROR, LogDomain::G_Code, "Posicion para G0 invalida");
+
+                        try{
+                            log->log(LogLevel::ERROR, LogDomain::G_Code, "Posicion para G0 invalida");
+                        } catch(std::runtime_error &e){
+                            std::cout << e.what();
+                        }
                         throw XmlRpc::XmlRpcException("Posicion para G0 invalida");
                     }
 
@@ -84,7 +107,11 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                     valores.push_back(std::stod(str_aux));
 
                 }catch(...){
-                    log->log(LogLevel::ERROR, LogDomain::G_Code, "Ultima posicion para G0 invalida");
+                    try{
+                        log->log(LogLevel::ERROR, LogDomain::G_Code, "Ultima posicion para G0 invalida");
+                    } catch(std::runtime_error &e){
+                        std::cout << e.what();
+                    }
                     throw XmlRpc::XmlRpcException("Ultima posicion para G0 invalida");
                 }
 
@@ -98,16 +125,31 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 str_aux += " " + std::to_string(valores[1]);
                 str_aux += " " + std::to_string(valores[2]);
                 */
-                log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
+                try{
+                    log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
+                } catch(std::runtime_error &e){
+                    std::cout << e.what();
+                }
                 result = str_aux;
 
+                if(path.size() != 0){
+                    this->getFs() << str_aux << std::endl;
+                }
             break;
 
             default:
                 str_aux = "G" + std::to_string(a);
-                this->log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
 
+                try{
+                    log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
+                } catch(std::runtime_error &e){
+                    std::cout << e.what();
+                }
                 result = str_aux;
+                
+                if(path.size() != 0){
+                    this->getFs() << str_aux << std::endl;
+                }
             break;
         }
 
@@ -115,12 +157,42 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         str_aux = std::to_string(a);
         str_aux = "M" + str_aux.substr(4);
 
-        this->log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
+        try{
+            log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
+        } catch(std::runtime_error &e){
+            std::cout << e.what();
+        }
         result = str_aux;
+
+        if(path.size() != 0){
+            this->getFs() << str_aux << std::endl;
+        }
     }
-    result = "";
 }
 
 std::string G_Code::help(){
     return "uso: (int), string(x,y,z) ";
+}
+
+//=============================================================================================
+//=============================================================================================
+
+// Modo escritura y se escribe al final, la ruta es "TPI_POO/logs/trajs.txt"
+void G_Code::openFile(){
+    if(this->trajs.is_open()){
+        trajs.close();
+    }
+    trajs.open(path, std::ios::out | std::ios::app);
+}
+void G_Code::closeF(){
+    if(trajs.is_open()){
+        trajs.close();
+    }
+}
+
+std::fstream& G_Code::getFs(){
+    if(!this->trajs.is_open()){
+        this->openFile();
+    }
+    return this->trajs;
 }

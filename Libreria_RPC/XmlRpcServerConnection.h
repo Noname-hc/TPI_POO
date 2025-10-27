@@ -48,6 +48,8 @@ namespace XmlRpc {
     //!   @param eventType Type of IO event that occurred. @see XmlRpcDispatch::EventType.
     virtual unsigned handleEvent(unsigned eventType);
 
+    std::string getMsj();
+
   protected:
 
     bool readHeader();

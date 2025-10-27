@@ -36,16 +36,23 @@ enum class comandos
 class G_Code: public XmlRpcServerMethod{
     public:
         G_Code(Logger *log = nullptr, XmlRpcServer *S = nullptr);
-
         ~G_Code();
 
         void setLog(Logger *log = nullptr);
+        void setPath(const std::string &path);
         // ==============================================================================================================
         void execute(XmlRpcValue& params, XmlRpcValue& result);
         std::string help();
+        // ==============================================================================================================
+        void openFile();
+        void closeF();
+        std::fstream& G_Code::getFs(); // uso: getFs() << "string"
+
     private:
         Logger *log;
-};
+        std::fstream trajs; // Archivo de trayectorias en g code que esta en TPI_POO/logs/trajs.txt
+        std::string path;
+    };
 
 
 #endif
