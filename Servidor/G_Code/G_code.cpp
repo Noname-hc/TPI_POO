@@ -6,6 +6,7 @@
 #include "G_code.h"
 #include "../Logger/Logger.hpp"
 #include "../../Libreria_RPC/XmlRpc.h"
+#include "../Serial_Com/Serial_Com.h"
 
 G_Code::G_Code(Logger *log, XmlRpcServer *S):XmlRpcServerMethod("G_Code",S){
     this->log = log;
@@ -25,6 +26,7 @@ void G_Code::setPath(const std::string &path){
 }
 //==============================================================================================
 void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es un entero params[1] es un string x,y,z (no hace falta poner si no hay que mover nada)
+    result = "";
     log->abrirLogger();
 
     if(!params.valid()){
@@ -116,21 +118,16 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 }
 
                 str_aux = "";
-                str_aux += "G0 [X:" + std::to_string(valores[0]);
-                str_aux += " Y:" + std::to_string(valores[1]);
-                str_aux += " Z:" + std::to_string(valores[2]) + "]";
+                str_aux += "G0 X" + std::to_string(valores[0]);
+                str_aux += " Y" + std::to_string(valores[1]);
+                str_aux += " Z" + std::to_string(valores[2]);
 
-                /*
-                str_aux += "G0 " + std::to_string(valores[0]);
-                str_aux += " " + std::to_string(valores[1]);
-                str_aux += " " + std::to_string(valores[2]);
-                */
                 try{
                     log->log(LogLevel::INFO, LogDomain::G_Code, str_aux);
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
-                result = str_aux;
+                str_aux;
 
                 if(path.size() != 0){
                     this->getFs() << str_aux << std::endl;
@@ -145,7 +142,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
-                result = str_aux;
+                str_aux;
                 
                 if(path.size() != 0){
                     this->getFs() << str_aux << std::endl;
@@ -162,10 +159,29 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         } catch(std::runtime_error &e){
             std::cout << e.what();
         }
-        result = str_aux;
+        str_aux;
 
         if(path.size() != 0){
             this->getFs() << str_aux << std::endl;
+        }
+    }
+
+    if(str_aux.size() != 0){
+        char Buffer[128];
+        Serial_Com Com;
+        Com.T_R_Init(19600, 2, "/dev/ttyACM0");
+        Com.ClearInput();
+
+        Com.Transmision(str_aux);
+        Com.Recepcion(Buffer, sizeof(Buffer), 3000);
+
+        result = Buffer;
+        Com.~Serial_Com();
+    }else{
+        try{
+            this->log->log(LogLevel::ERROR, LogDomain::G_Code, "No se transmite nada");
+        }catch(std::runtime_error &e){
+            std::cout << e.what();
         }
     }
 }

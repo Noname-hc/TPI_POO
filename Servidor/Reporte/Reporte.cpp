@@ -57,6 +57,8 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result){
         LogLevel lvl = static_cast<LogLevel>(b);
         result = Log->getMsj(lvl, dom);
     }
+    
+    std::cout << Log->obtenerHoraActual() << result << std::endl;
 
     Log->~Logger();
 }
