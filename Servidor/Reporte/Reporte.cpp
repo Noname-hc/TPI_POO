@@ -25,14 +25,17 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result){
 
     }else if(params.size() == 1){
         if(params.getType() != XmlRpcValue::TypeInt){
+            Log->log(LogLevel::ERROR, LogDomain::Reporte, "error: Valor no entero");
             throw XmlRpc::XmlRpcException("error: Valor no entero");
         }
         un_param = true;
 
     }else if(params.getType() != XmlRpcValue::TypeArray){
+        Log->log(LogLevel::ERROR, LogDomain::Reporte, "Los parametros no conforman un arreglo");
         throw XmlRpc::XmlRpcException("Los parametros no conforman un arreglo");
 
     }else if(params[0].getType() != XmlRpcValue::TypeInt && params[1].getType() != XmlRpcValue::TypeInt){
+        Log->log(LogLevel::ERROR, LogDomain::Reporte, "Hay valores no enteros en los parametros");
         throw XmlRpc::XmlRpcException("Hay valores no enteros en los parametros");
     }
     Log->abrirLogger();
@@ -46,10 +49,12 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result){
     }else{
         int a = params[0];
         if( !(a >= 0 && a <= 3)){
+            Log->log(LogLevel::ERROR, LogDomain::Reporte, "el primer parametro no esta en rango");
             throw XmlRpc::XmlRpcException("el primer parametro no esta en rango");
         }
         int b = params[1];
         if( !(b >= 0 && b <= 1)){
+            Log->log(LogLevel::ERROR, LogDomain::Reporte, "el segundo parametro no esta en rango");
             throw XmlRpc::XmlRpcException("el segundo parametro no esta en rango");
         }
 
@@ -63,5 +68,5 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result){
     Log->~Logger();
 }
 std::string Reporte::help(){
-
+    return "Se entregan dos enteros corrspondientes al enum de log domain y log level respectivamente";
 }

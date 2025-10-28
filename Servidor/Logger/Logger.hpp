@@ -5,7 +5,8 @@
 enum class LogDomain
 {
     MAIN,
-    G_Code
+    G_Code,
+    Reporte
     //, editar según sea necesario
 };
 

@@ -20,7 +20,6 @@ int main(int argc, char* argv[]){
     Logger Log("logs/Logger.log");
     // Registro de metodos en el servidor
     // mediante el uso del constructor heredado.
-    Reporte reporte(&Log, &S);
     G_Code g_code(&Log,&S);
     g_code.setPath("logs/Trayectorias.log");
     g_code.openFile();
@@ -32,11 +31,27 @@ int main(int argc, char* argv[]){
     XmlRpcSocket sock;
     bool eof = true;
     std::string Mensaje_inicial = "";
-    sock.nbRead(S.getfd(), Mensaje_inicial, &eof);
 
-    std::cout << "Mensaje inicial: " << std::endl << Mensaje_inicial;
-    // La idea es que el mensaje inicial especifique nivel de acceso y con eso asociemos mas o menos funciones a S
+    if(sock.nbRead(S.getfd(), Mensaje_inicial, &eof)){
+        Log.log(LogLevel::DEBUG, LogDomain::MAIN, "Mensaje inicial: " + Mensaje_inicial);
 
+        std::string str_aux = "";
+        size_t pos = Mensaje_inicial.find("<Permisos>");
+
+        str_aux = Mensaje_inicial.substr(pos+11, (Mensaje_inicial.find("</Permisos>") - (pos+11)) );
+        Log.log(LogLevel::DEBUG, LogDomain::MAIN, "str_aux: " + str_aux);
+
+        if(str_aux == "user"){
+            Log.log(LogLevel::INFO, LogDomain::MAIN, "Logeado como user");
+
+        }else if(str_aux == "admin"){
+            Reporte reporte(&Log, &S);
+            Log.log(LogLevel::INFO, LogDomain::MAIN, "Logeado como admin");
+        }
+
+    }else{
+        Log.log(LogLevel::ERROR, LogDomain::MAIN, "El mensaje inicial no se recibio correctamente");
+    }
 
     // Enable introspection
     S.enableIntrospection(true);
