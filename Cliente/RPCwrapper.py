@@ -8,7 +8,7 @@ class RobotRPCClient:
         self.server = None
         # centralizar nombres de métodos para fácil edición
         self.methods = {
-            "Inicio": "Inicio",            # rpc.login(user, password)
+            "login": "Inicio",            # rpc.login(user, password)
             "get_status": "get_status",  # rpc.get_status()
             "move_xyz": "move_xyz",      # rpc.move_xyz(x,y,z)
             "home": "home",              # rpc.home()
@@ -57,7 +57,7 @@ class RobotRPCClient:
 
     # Wrappers específicos (facilitan el uso en UI, pero podés llamarlos por call())
     def login(self, username, password):
-        return self.call("Inicio", username, password)
+        return self.call("login", username, password)
 
     def get_status(self):
         return self.call("get_status")
