@@ -35,8 +35,14 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         switch (Nivel_de_Acceso)
     {
         case 0:
+            try{
+                this->log->log(LogLevel::ERROR, LogDomain::G_Code, "Falta Loguearse");       
+
+            }catch(std::runtime_error &e){
+                std::cout << e.what() << std::endl;
+            }
             throw XmlRpc::XmlRpcException("Falta logearse");
-            return;
+
         break;
 
         case 1:
@@ -48,8 +54,14 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         break;
 
         default:
+            try{
+                this->log->log(LogLevel::ERROR, LogDomain::G_Code, "Error al logearse");       
+
+            }catch(std::runtime_error &e){
+                std::cout << e.what() << std::endl;
+            }
             throw XmlRpc::XmlRpcException("Error al logearse");
-            return;
+            
         break;
     }
 
@@ -153,7 +165,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
-                str_aux;
+                result = str_aux;
 
                 if(path.size() != 0){
                     this->getFs() << str_aux << std::endl;
@@ -168,11 +180,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
-                str_aux;
-                
-                if(path.size() != 0){
-                    this->getFs() << str_aux << std::endl;
-                }
+                result = str_aux;
             break;
         }
 
@@ -185,14 +193,10 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         } catch(std::runtime_error &e){
             std::cout << e.what();
         }
-        str_aux;
-
-        if(path.size() != 0){
-            this->getFs() << str_aux << std::endl;
-        }
+        result = str_aux;
     }
 
-    if(str_aux.size() != 0){
+    /*if(str_aux.size() != 0){
         char Buffer[128];
         Serial_Com Com;
         Com.T_R_Init(19600, 2, "/dev/ttyACM0");
@@ -209,7 +213,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         }catch(std::runtime_error &e){
             std::cout << e.what();
         }
-    }
+    }*/
 }
 
 std::string G_Code::help(){

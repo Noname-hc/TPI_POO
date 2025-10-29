@@ -72,6 +72,8 @@ std::string Logger::domainToString(LogDomain dom)
     {
         case LogDomain::MAIN: return "MAIN";
         case LogDomain::G_Code: return "G_Code";
+        case LogDomain::Inicio: return "Inicio";
+        case LogDomain::Reporte: return "Reporte";
         //case domain::...: return "..."; // editar según sea necesario
         default: return "UNKNOWN";
     }
