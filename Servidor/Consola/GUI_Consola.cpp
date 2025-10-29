@@ -11,8 +11,8 @@
 #include <iomanip>
 
 // ---------------- CSV helpers ----------------
-static std::string esc_csv(std::string s) {
-    if(s.find(',')!=std::string::npos || s.find('"')!=std::string::npos){
+static std::string esc_csv(std::string s) {  // escapa si tiene comas o comillas
+    if(s.find(',')!=std::string::npos || s.find('"')!=std::string::npos){  
         std::string t; t.reserve(s.size()+2);
         t.push_back('"');
         for(char c: s){ if(c=='"') t.push_back('"'); t.push_back(c); }
