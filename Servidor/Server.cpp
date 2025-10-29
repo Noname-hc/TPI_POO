@@ -27,6 +27,7 @@ int main(int argc, char* argv[]){
 
     Reporte Repo(&Log,0,&S);
     Inicio Init(0, &Log, &S);
+    Init.setMethod(&Repo, &g_code);
     XmlRpc::setVerbosity(5);
 
     // Se crea un socket de servidor sobre el puerto indicado
