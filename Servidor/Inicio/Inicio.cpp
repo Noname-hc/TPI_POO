@@ -24,13 +24,13 @@ void Inicio::setMethod(Reporte *Repo, G_Code *gcode){
 }
 
 void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
-    std::string usuario = params[0];
-    std::string contraseña = params[0];
+    std::string usuario = (std::string)params[0];
+    std::string contraseña = (std::string)params[1];
 
     bool valido = false;
 
     if(usuario == "Nacho" && contraseña == "123"){
-        valido == true;
+        valido = true;
     }
 
 

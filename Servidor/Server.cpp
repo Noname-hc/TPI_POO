@@ -26,8 +26,11 @@ int main(int argc, char* argv[]){
     g_code.openFile();
 
     Reporte Repo(&Log,0,&S);
+
     Inicio Init(0, &Log, &S);
     Init.setMethod(&Repo, &g_code);
+
+    // Para debugear
     XmlRpc::setVerbosity(5);
 
     // Se crea un socket de servidor sobre el puerto indicado
