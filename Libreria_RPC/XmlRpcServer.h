@@ -79,7 +79,7 @@ namespace XmlRpc {
   protected:
 
     //! Accept a client connection request
-    virtual void acceptConnection();
+    virtual void acceptConnection();           
 
     //! Create a new connection object for processing requests from a specific client.
     virtual XmlRpcServerConnection* createConnection(int socket);

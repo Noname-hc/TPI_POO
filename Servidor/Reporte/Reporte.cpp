@@ -6,18 +6,44 @@
 
 using namespace XmlRpc;
 
-Reporte::Reporte(Logger *Log = nullptr, XmlRpcServer *S):XmlRpcServerMethod("Reporte", S){
+Reporte::Reporte(Logger *Log, const int Nivel_de_Acceso, XmlRpcServer *S):XmlRpcServerMethod("Reporte", S){
     this->Log = Log;
+    this->Nivel_de_Acceso = Nivel_de_Acceso;
 }
 Reporte::~Reporte(){
     if(this->Log != nullptr){
         this->Log->~Logger();
     }
 }
+void Reporte::setLvL(const int Nivel_de_Acceso){
+    this->Nivel_de_Acceso = Nivel_de_Acceso;
+}
 
 // Se entregan dos enteros corrspondientes al enum de log domain y log level respectivamente
 void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result){
     bool un_param = false;
+    
+    switch (Nivel_de_Acceso)
+    {
+        case 0:
+            throw XmlRpc::XmlRpcException("Falta logearse");
+            return;
+        break;
+
+        case 1:
+            // Un usuario no puede acceder a este metodo
+            return;
+        break;
+
+        case 2:
+            // Se puede acceder al metodo, no se hace nada
+        break;
+
+        default:
+            throw XmlRpc::XmlRpcException("Error al logearse");
+            return;
+        break;
+    }
 
     if(params.size() == 0){
         result = Log->getMsj();

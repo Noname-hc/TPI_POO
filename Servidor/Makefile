@@ -1,7 +1,10 @@
 includes = Server.cpp 
 includes += ../Libreria_RPC/*.cpp 
+includes += ../Servidor/Inicio/Inicio.cpp 
 includes += ../Servidor/G_Code/G_code.cpp 
 includes += ../Servidor/Logger/Logger.cpp 
+includes += ../Servidor/Reporte/Reporte.cpp
+includes += ../Servidor/Serial_Com/Serial_Com.cpp
 
 flag_version = -std=c++23
 
@@ -12,4 +15,4 @@ clear:
 clean:
 	rm -f Server.exe
 exe:
-	./Server.exe 8000
+	./Server.exe 8001

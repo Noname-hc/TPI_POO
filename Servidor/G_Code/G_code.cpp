@@ -8,8 +8,9 @@
 #include "../../Libreria_RPC/XmlRpc.h"
 #include "../Serial_Com/Serial_Com.h"
 
-G_Code::G_Code(Logger *log, XmlRpcServer *S):XmlRpcServerMethod("G_Code",S){
+G_Code::G_Code(Logger *log, const int Nivel_de_Acceso, XmlRpcServer *S):XmlRpcServerMethod("G_Code",S){
     this->log = log;
+    this->Nivel_de_Acceso = Nivel_de_Acceso;
 }
 
 G_Code::~G_Code(){
@@ -24,9 +25,34 @@ void G_Code::setLog(Logger *log){
 void G_Code::setPath(const std::string &path){
     this->path = path;
 }
+void G_Code::setLvL(const int Nivel_de_Acceso){
+    this->Nivel_de_Acceso = Nivel_de_Acceso;
+}
 //==============================================================================================
 void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es un entero params[1] es un string x,y,z (no hace falta poner si no hay que mover nada)
     result = "";
+
+        switch (Nivel_de_Acceso)
+    {
+        case 0:
+            throw XmlRpc::XmlRpcException("Falta logearse");
+            return;
+        break;
+
+        case 1:
+            // Se puede acceder al metodo, no se hace nada
+        break;
+
+        case 2:
+            // Se puede acceder al metodo, no se hace nada
+        break;
+
+        default:
+            throw XmlRpc::XmlRpcException("Error al logearse");
+            return;
+        break;
+    }
+
     log->abrirLogger();
 
     if(!params.valid()){

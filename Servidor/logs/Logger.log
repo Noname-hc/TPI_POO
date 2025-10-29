@@ -5,3 +5,15 @@
 [2025-10-23 11:22:40] [DEBUG] [MAIN] Probando rutas
 [2025-10-23 13:16:53] [DEBUG] [MAIN] Probando rutas
 [2025-10-23 13:34:42] [DEBUG] [MAIN] Probando rutas
+[2025-10-28 19:17:30] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:17:50] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:21:18] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:21:25] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:49:50] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:56:26] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:56:36] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 19:57:39] [ERROR] [G_Code] parametros debe contener entero, string
+[2025-10-28 19:59:09] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
+[2025-10-28 20:01:27] [ERROR] [G_Code] parametros debe contener entero, string
+[2025-10-28 20:02:51] [ERROR] [G_Code] parametros debe contener entero, string[2025-10-29 09:18:27] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
+[2025-10-29 09:27:58] [ERROR] [MAIN] No se pudo establecer conexion con el cliente

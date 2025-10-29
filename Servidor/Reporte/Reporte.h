@@ -9,14 +9,16 @@
 
 class Reporte: public XmlRpc::XmlRpcServerMethod{
     public:
-        Reporte(Logger *Log = nullptr, XmlRpc::XmlRpcServer *S);
+        Reporte(Logger *Log, const int Nivel_de_Acceso, XmlRpc::XmlRpcServer *S);
         ~Reporte();
-        void setLog(Logger *Log);
+        
+        void setLvL(const int Nivel_de_Acceso);
         void execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result);
         std::string help();
 
     private:
         Logger *Log;
+        int Nivel_de_Acceso = 0;
 
 };
 
