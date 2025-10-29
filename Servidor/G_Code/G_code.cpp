@@ -193,7 +193,8 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         } catch(std::runtime_error &e){
             std::cout << e.what();
         }
-        result = str_aux;
+        result=str_aux;
+
     }
 
     /*if(str_aux.size() != 0){

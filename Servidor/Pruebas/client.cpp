@@ -77,42 +77,49 @@ int main(int argc, char* argv[])
         switch(cont){
           case 0:
             c.execute("Reporte", parametros, result);
+            std::cout << "Reporte:" << std::endl;
+            std::cout << result << std::endl;
           break;
 
           case 1:
-            std::cout << "ingrese LogDomain: " << std::endl;
-            std::cout << "  0 -> main" << std::endl;
-            std::cout << "  1 -> G_Code" << std::endl;
-            std::cout << "  2 -> Reporte" << std::endl;
-            std::cout << "  3 -> Inicio" << std::endl;
-            cin >> cont;
-
-            parametros = cont;
-            c.execute("Reporte", parametros, result);
-          break;
-
-          case 2:
-            std::cout << "ingrese LogDomain: " << std::endl;
-            std::cout << "  0 -> main" << std::endl;
-            std::cout << "  1 -> G_Code" << std::endl;
-            std::cout << "  2 -> Reporte" << std::endl;
-            std::cout << "  3 -> Inicio" << std::endl;
-            cin >> cont;
-            parametros[0] = cont;
-
             std::cout << "ingrese LogLevel: " << std::endl;
             std::cout << "  0 -> INFO" << std::endl;
             std::cout << "  1 -> WARNING" << std::endl;
             std::cout << "  2 -> ERROR" << std::endl;
             std::cout << "  3 -> DEBUG" << std::endl;
             cin >> cont;
+            
+            parametros = cont;
+            c.execute("Reporte", parametros, result);
+            std::cout << "Reporte:" << std::endl;
+            std::cout << result << std::endl;
+          break;
+
+          case 2:
+            std::cout << "ingrese Nivel: " << std::endl;
+            std::cout << "  0 -> INFO" << std::endl;
+            std::cout << "  1 -> WARNING" << std::endl;
+            std::cout << "  2 -> ERROR" << std::endl;
+            std::cout << "  3 -> DEBUG" << std::endl;
+            cin >> cont;
+            parametros[0] = cont;
+
+            std::cout << "ingrese Dominio: " << std::endl;
+            std::cout << "  0 -> main" << std::endl;
+            std::cout << "  1 -> G_Code" << std::endl;
+            std::cout << "  2 -> Reporte" << std::endl;
+            std::cout << "  3 -> Inicio" << std::endl;
+            cin >> cont;
             parametros[1] = cont;
 
             c.execute("Reporte", parametros, result);
+            std::cout << "Reporte:" << std::endl;
+            std::cout << result << std::endl;
           break;
         }
-        std::cout << result << std::endl <<std::endl;
+
     }
+    parametros.clear();
   }
 
   return 0;

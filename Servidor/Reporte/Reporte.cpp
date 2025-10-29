@@ -134,6 +134,7 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result) 
     // Caso: arreglo
     if (params.getType() == XmlRpcValue::TypeArray) {
         int sz = params.size();
+
         if (sz == 0) {
             result = Log->getMsj();
             return;
@@ -145,6 +146,7 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result) 
             }
             int lvl = (int)params[0];
             if (lvl < 0 || lvl > 3) throw XmlRpc::XmlRpcException("Nivel fuera de rango");
+
             result = Log->getMsj(static_cast<LogLevel>(lvl));
             return;
         }
@@ -156,7 +158,7 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result) 
             int a = (int)params[0]; // domain
             int b = (int)params[1]; // level
             // Comprobar rangos válidos (ajusta según enum)
-            if (a < 0 /*|| a > MAX_DOMAIN*/) {
+            if (a < 0 || a > 3) {
                 Log->log(LogLevel::ERROR, LogDomain::Reporte, "domain fuera de rango");
                 throw XmlRpc::XmlRpcException("domain fuera de rango");
             }
@@ -164,8 +166,10 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result) 
                 Log->log(LogLevel::ERROR, LogDomain::Reporte, "level fuera de rango");
                 throw XmlRpc::XmlRpcException("level fuera de rango");
             }
-            LogDomain dom = static_cast<LogDomain>(a);
-            LogLevel lvl = static_cast<LogLevel>(b);
+            LogLevel lvl = static_cast<LogLevel>(a);
+            LogDomain dom = static_cast<LogDomain>(b);
+
+
             result = Log->getMsj(lvl, dom);
             return;
         }
