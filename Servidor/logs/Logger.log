@@ -48,3 +48,6 @@
 [2025-10-29 20:30:14] [ERROR] [Reporte] Falta logearse
 [2025-10-29 20:32:23] [ERROR] [G_Code] Falta Loguearse
 [2025-10-29 20:32:42] [INFO] [G_Code] G0 X1.000000 Y2.000000 Z34.343000
+[2025-10-30 17:00:47] [ERROR] [Reporte] Falta logearse
+[2025-10-30 17:01:04] [ERROR] [Reporte] Falta logearse
+[2025-10-30 17:02:00] [ERROR] [G_Code] Ultima posicion para G0 invalida

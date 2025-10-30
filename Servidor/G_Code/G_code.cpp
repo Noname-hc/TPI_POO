@@ -165,7 +165,6 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
-                result = str_aux;
 
                 if(path.size() != 0){
                     this->getFs() << str_aux << std::endl;
@@ -180,7 +179,6 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
-                result = str_aux;
             break;
         }
 
@@ -193,28 +191,37 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         } catch(std::runtime_error &e){
             std::cout << e.what();
         }
-        result=str_aux;
-
     }
 
-    /*if(str_aux.size() != 0){
+    Serial_Com Com;
+    if(str_aux.size() != 0){
         char Buffer[128];
-        Serial_Com Com;
         Com.T_R_Init(19600, 2, "/dev/ttyACM0");
         Com.ClearInput();
 
         Com.Transmision(str_aux);
         Com.Recepcion(Buffer, sizeof(Buffer), 3000);
 
-        result = Buffer;
-        Com.~Serial_Com();
     }else{
         try{
             this->log->log(LogLevel::ERROR, LogDomain::G_Code, "No se transmite nada");
         }catch(std::runtime_error &e){
             std::cout << e.what();
         }
-    }*/
+    }
+    char Buffer[1024];
+    Com.Recepcion(Buffer, sizeof(Buffer), 3000);
+
+
+// ======================================= Reporte =======================================
+    result = (std::string)Buffer;
+    try{
+        this->log->log(LogLevel::INFO, LogDomain::G_Code, "el resultado fue:" + (std::string)result);
+    }catch(std::runtime_error &e){
+        std::cout << e.what();
+    }
+    std::cout << result << std::endl;
+// =======================================================================================
 }
 
 std::string G_Code::help(){
