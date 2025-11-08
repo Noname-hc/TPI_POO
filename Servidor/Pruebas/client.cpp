@@ -26,42 +26,101 @@ int main(int argc, char* argv[])
   XmlRpcValue oneArg;
   XmlRpcValue numbers;
 
-  std::cout << "Ingrese un numero del 0 al 1\n\n";
-  std::cin >> cont;
+  std::string user;
+  std::string contrasena;
+  std::string stringaux;
 
- 
-  switch(cont){
-    case 0:
-      std::cout << "---------------------------------------------------------------------" << std::endl ;
-      std::cout << "*********** Una mirada a los metodos soportados por la API **********" << std::endl ;
-      if (c.execute("system.listMethods", parametros, result))
-        std::cout << "\nMetodos:\n " << result << "\n\n";
-      else
-        std::cout << "Error en la llamada a 'listMethods'\n\n";
+  while(true){
+    std::cout << "Ingrese un numero del 0 al 2\n\n";
+    std::cin >> cont;
+
+    switch(cont){
+      case 0:
+        
+        std::cout << "ingrese usuario" << std::endl;
+        std::cin >> user;
+
+        std::cout << "ingrese contraseña" << std::endl;
+        std::cin >> contrasena;
+
+        parametros[0] = user;
+        parametros[1] = contrasena;
+        c.execute("Inicio", parametros, result);
+
+        std::cout << result << std::endl;
+
       break;
 
+      case 1:
+        std::cout << "Ingrese un numero para G_Code" << std::endl;
+        cin >> cont;
 
-    case 2:
-      std::cout << "Ingrese un numero para G_Code" << std::endl ;
-      cin >> cont;
+        parametros[0] = cont;
 
-      std::string stringaux;
-      parametros[0] = stringaux;
+        std::cout << "********************** Llamada al metodo G_Code **********************" << std::endl ;
+        if(cont == 0){
+          cout << "Ingrese posicion" << endl;
+          cin >> stringaux;
+          parametros[1] = stringaux;
+        }
 
-      std::cout << "********************** Llamada al metodo G_Code **********************" << std::endl ;
-      if(cont == 0){
-        cout << "Ingrese posicion" << endl;
-        cin >> stringaux;
-      parametros[1] = stringaux;
-      }
+        if (c.execute("G_Code", parametros, result))
+          std::cout << result << "\n\n";
+        else
+          std::cout << "Error en la llamada a 'G_Code'\n\n";
+        break;
 
-      if (c.execute("G_Code", parametros, result))
-        std::cout << result << "\n\n";
-      else
-        std::cout << "Error en la llamada a 'G_Code'\n\n";
-      break;
+      case 2:
+        std::cout << "Cuantos parametros utilizara para filtrar el reporte? (0, 1 o 2)" << std::endl;
+        cin >> cont;
+
+        switch(cont){
+          case 0:
+            c.execute("Reporte", parametros, result);
+            std::cout << "Reporte:" << std::endl;
+            std::cout << result << std::endl;
+          break;
+
+          case 1:
+            std::cout << "ingrese LogLevel: " << std::endl;
+            std::cout << "  0 -> INFO" << std::endl;
+            std::cout << "  1 -> WARNING" << std::endl;
+            std::cout << "  2 -> ERROR" << std::endl;
+            std::cout << "  3 -> DEBUG" << std::endl;
+            cin >> cont;
+            
+            parametros = cont;
+            c.execute("Reporte", parametros, result);
+            std::cout << "Reporte:" << std::endl;
+            std::cout << result << std::endl;
+          break;
+
+          case 2:
+            std::cout << "ingrese Nivel: " << std::endl;
+            std::cout << "  0 -> INFO" << std::endl;
+            std::cout << "  1 -> WARNING" << std::endl;
+            std::cout << "  2 -> ERROR" << std::endl;
+            std::cout << "  3 -> DEBUG" << std::endl;
+            cin >> cont;
+            parametros[0] = cont;
+
+            std::cout << "ingrese Dominio: " << std::endl;
+            std::cout << "  0 -> main" << std::endl;
+            std::cout << "  1 -> G_Code" << std::endl;
+            std::cout << "  2 -> Reporte" << std::endl;
+            std::cout << "  3 -> Inicio" << std::endl;
+            cin >> cont;
+            parametros[1] = cont;
+
+            c.execute("Reporte", parametros, result);
+            std::cout << "Reporte:" << std::endl;
+            std::cout << result << std::endl;
+          break;
+        }
+
+    }
+    parametros.clear();
   }
-  
 
   return 0;
 }

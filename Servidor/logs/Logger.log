@@ -15,5 +15,39 @@
 [2025-10-28 19:57:39] [ERROR] [G_Code] parametros debe contener entero, string
 [2025-10-28 19:59:09] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
 [2025-10-28 20:01:27] [ERROR] [G_Code] parametros debe contener entero, string
-[2025-10-28 20:02:51] [ERROR] [G_Code] parametros debe contener entero, string[2025-10-29 09:18:27] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
+[2025-10-28 20:02:51] [ERROR] [G_Code] parametros debe contener entero, string
+[2025-10-29 09:18:27] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
 [2025-10-29 09:27:58] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
+[2025-10-29 14:59:04] [ERROR] [G_Code] Falta Loguearse
+[2025-10-29 15:07:53] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
+[2025-10-29 15:10:33] [INFO] [G_Code] G0 X2.200000 Y2.300000 Z4.800000
+[2025-10-29 15:15:01] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
+[2025-10-29 15:15:21] [INFO] [G_Code] M1
+[2025-10-29 15:15:38] [INFO] [G_Code] G0 X2.343200 Y1.230000 Z4.000000
+[2025-10-29 15:37:05] [ERROR] [G_Code] Falta Loguearse
+[2025-10-29 15:37:27] [INFO] [G_Code] M2
+[2025-10-29 15:37:35] [ERROR] [Reporte] el primer parametro no esta en rango
+[2025-10-29 15:43:06] [ERROR] [Reporte] Hay valores no enteros en los parametros
+[2025-10-29 16:03:12] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
+[2025-10-29 16:03:17] [INFO] [G_Code] G3
+[2025-10-29 16:15:17] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
+[2025-10-29 16:17:03] [ERROR] [Reporte] Falta logearse
+[2025-10-29 16:17:44] [ERROR] [Reporte] Falta logearse
+[2025-10-29 16:18:00] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
+[2025-10-29 16:29:44] [INFO] [G_Code] G0 X1.000000 Y2.000000 Z3.000000
+[2025-10-29 16:29:53] [INFO] [G_Code] G1
+[2025-10-29 17:09:21] [INFO] [G_Code] G0 X1.000000 Y1.000000 Z1.000000
+[2025-10-29 17:14:49] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
+[2025-10-29 17:14:56] [INFO] [G_Code] G1
+[2025-10-29 19:27:27] [INFO] [G_Code] M116
+[2025-10-29 19:27:42] [INFO] [G_Code] G0 X2.210000 Y2.000000 Z1.000000
+[2025-10-29 19:27:54] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
+[2025-10-29 19:55:28] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
+[2025-10-29 19:55:52] [INFO] [G_Code] G3
+[2025-10-29 20:29:52] [ERROR] [Reporte] Falta logearse
+[2025-10-29 20:30:14] [ERROR] [Reporte] Falta logearse
+[2025-10-29 20:32:23] [ERROR] [G_Code] Falta Loguearse
+[2025-10-29 20:32:42] [INFO] [G_Code] G0 X1.000000 Y2.000000 Z34.343000
+[2025-10-30 17:00:47] [ERROR] [Reporte] Falta logearse
+[2025-10-30 17:01:04] [ERROR] [Reporte] Falta logearse
+[2025-10-30 17:02:00] [ERROR] [G_Code] Ultima posicion para G0 invalida

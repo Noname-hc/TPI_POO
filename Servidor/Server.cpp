@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     Init.setMethod(&Repo, &g_code);
 
     // Para debugear
-    XmlRpc::setVerbosity(5);
+    //XmlRpc::setVerbosity(5);
 
     // Se crea un socket de servidor sobre el puerto indicado
     S.bindAndListen(port);
