@@ -118,6 +118,13 @@ class MainFrame(tk.Frame):
         home_btn = tk.Button(move_frame, text="Home", command=self.home)
         home_btn.grid(row=0, column=7, padx=4)
 
+        extra_frame= tk.LabelFrame(self, text="Funciones adicionales")
+        extra_frame.pack(fill= "x", padx=5, pady=5)
+
+        k.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=0, padx=5, pady=5)
+        tk.Button(extra_frame, text="HelpMove", command=self.help_move).grid(row=0, column=1, padx=5, pady=5)
+        tk.Button(extra_frame, text="HelpReporte", command=self.help_reporte).grid(row=0, column=2, padx=5, pady=5)
+        
         # Status and commands
         info_frame = tk.Frame(self)
         info_frame.pack(fill="both", expand=True, padx=5, pady=5)
@@ -174,7 +181,28 @@ class MainFrame(tk.Frame):
             except Exception as e:
                 self.master.after(0, lambda: self.log_msg(f"ERROR home: {e}"))
         threading.Thread(target=do_home, daemon=True).start()
+    
+    def reporte(self):
+        def t():
+            try:
+                res = self.rpc.reporte()
+                self.master.after(0, lambda: self.log_msg(f"Reporte -> {res}"))
+            except Exception as e:
+                self.master.after(0, lambda: self.log_msg(f"ERROR reporte: {e}"))
+        threading.Thread(target=t, daemon=True).start()
 
+     def help_move(self):
+        def t():
+            try:
+                res = self.rpc.help_move()
+                self.master.after(0, lambda: self.log_msg(f"HelpMove -> {res}"))
+            except Exception as e:
+                self.master.after(0, lambda: self.log_msg(f"ERROR help_move: {e}"))
+        threading.Thread(target=t, daemon=True).start()
+
+    def help_reporte(self):
+        messagebox.showinfo("HelpReporte", "Esta sección se completará más adelante.")
+           
     def get_status(self):
         def do_status():
             try:

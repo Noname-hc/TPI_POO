@@ -10,10 +10,12 @@ class RobotRPCClient:
         self.methods = {
             "login": "Inicio",            # rpc.login(user, password)
             "get_status": "get_status",  # rpc.get_status()
-            "move_xyz": "move_xyz",      # rpc.move_xyz(x,y,z)
+             "move_xyz": "G_Code",   # rpc.G_Code([4,"x,y,z"])
             "home": "home",              # rpc.home()
             "list_commands": "list_commands"  # rpc.list_commands()
-        }
+            "help_move": "G_Code_help"   #lista de comandos
+            "reporte": "Reporte"
+                }
 
     def _ensure_proxy(self):
         if self.server is None:
@@ -70,3 +72,9 @@ class RobotRPCClient:
 
     def list_commands(self):
         return self.call("list_commands")
+
+    def help_move(self):
+        return self.call("help_mmove")
+    
+    def reporte(self):
+        return self.call("reporte")
