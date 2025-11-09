@@ -70,6 +70,8 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
     if(!params.valid()){
         log->log(LogLevel::ERROR, LogDomain::G_Code, "Los parametros no son de ningun tipo");
         throw XmlRpc::XmlRpcException("Los parametros no son de ningun tipo");
+        std::cout << "Ups" << std::endl;
+        std::cout << params << std::endl; 
 
     }else if(params.getType() != XmlRpcValue::TypeArray){ // Verificamos si es arreglo
 
@@ -79,7 +81,13 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         }
         // si llego hasta aca es porque es entero
 
-    }else if(params.size() != 2){ // si es arreglo el tamaño debe ser igual a 2
+    }else if(params.size() == 1){ // si es arreglo y el tamaño es de 1, debe contener un entero
+        if(params[0].getType() != XmlRpcValue::TypeInt){ // verificamos si es entero ya que no es arreglo
+            log->log(LogLevel::ERROR, LogDomain::G_Code, "El arreglo de tamaño un no es entero");
+            throw XmlRpc::XmlRpcException("El arreglo de tamaño un no es entero");
+        }
+
+    }else if(params.size() >= 2){ // si es arreglo el tamaño debe ser igual a 2
         log->log(LogLevel::ERROR, LogDomain::G_Code, "Parametros esperados para array = 2");
         throw XmlRpc::XmlRpcException("Parametros esperados para array = 2");
 
@@ -88,8 +96,11 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         throw XmlRpc::XmlRpcException("parametros debe contener entero, string");
     }
 
-    std::string str_aux = params[1];
-    str_aux.erase(std::remove(str_aux.begin(), str_aux.end(), ' '), str_aux.end());// eliminamos los espacios
+    std::string str_aux = "";
+    if(params.size() == 2){
+        str_aux = (std::string)params[1];
+        str_aux.erase(std::remove(str_aux.begin(), str_aux.end(), ' '), str_aux.end());// eliminamos los espacios
+    }
 
     std::string str_aux_G0 = "";
     std::vector<double> valores = {};
@@ -169,6 +180,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 if(path.size() != 0){
                     this->getFs() << str_aux << std::endl;
                 }
+
             break;
 
             default:
@@ -179,6 +191,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
                 } catch(std::runtime_error &e){
                     std::cout << e.what();
                 }
+
             break;
         }
 
@@ -191,6 +204,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         } catch(std::runtime_error &e){
             std::cout << e.what();
         }
+
     }
 
     Serial_Com Com;
@@ -220,7 +234,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
     }catch(std::runtime_error &e){
         std::cout << e.what();
     }
-    std::cout << result << std::endl;
+
 // =======================================================================================
 }
 

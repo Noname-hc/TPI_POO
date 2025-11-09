@@ -2,7 +2,7 @@ import xmlrpc.client as RPC_XML
 import socket
 
 class RobotRPCClient:
-    def __init__(self, server_ip="127.0.0.1", server_port="8001"):
+    def __init__(self, server_ip="192.168.100.37", server_port="8001"):
         self.server_ip = server_ip
         self.server_port = server_port
         self.server = None
@@ -74,7 +74,7 @@ class RobotRPCClient:
         return self.call("list_commands")
 
     def help_move(self):
-        return self.call("help_mmove")
+        return self.call("help_move")
     
     def reporte(self):
         return self.call("reporte")
