@@ -59,12 +59,12 @@ class LoginFrame(tk.Frame):
                 res = self.rpc.login(user, pwd)
                 # Se espera que el servidor devuelva True/False o "OK"/"ERROR"
                 ok = False
-                if isinstance(res, bool):
-                    ok = res
-                elif isinstance(res, str):
-                    ok = res.lower() in ("ok", "true", "1", "success")
+                
+                if res in ("Bienvenido cliente", "Bienvenido administrador"):
+                    ok = True
                 else:
-                    ok = bool(res)
+                    ok = False
+
                 if ok:
                     self.master.after(0, lambda: self.on_success(user))
                 else:

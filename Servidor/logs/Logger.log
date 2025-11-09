@@ -112,3 +112,11 @@
 [2025-11-09 15:36:55] [INFO] [Inicio] Usuario autenticado: Nico
 [2025-11-09 15:38:33] [INFO] [Inicio] Usuario autenticado: Nico
 [2025-11-09 15:38:50] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 15:51:21] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 15:56:47] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 15:58:17] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:00:05] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 16:00:13] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 16:01:09] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:07:27] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 16:07:30] [ERROR] [G_Code] Parametros esperados para array = 2
