@@ -10,7 +10,7 @@ class RobotRPCClient:
         self.methods = {
             "login": "Inicio",            # rpc.login(user, password)
             "get_status": "get_status",  # rpc.get_status()
-             "move_xyz": "G_Code",   # rpc.G_Code([4,"x,y,z"])
+            "move_xyz": "G_Code",   # rpc.G_Code([4,"x,y,z"])
             "home": "home",              # rpc.home()
             "list_commands": "list_commands",  # rpc.list_commands()
             "help_move": "G_Code_help",   #lista de comandos
@@ -94,6 +94,8 @@ class RobotRPCClient:
             "Reporte_General": 1000114,
             "Reporte_finales": 1000119
         }
+        texto = "Comandos disponibles"
+
         for nombre, codigo in comandos.items():
             texto += f"{nombre:20s} = {codigo}\n"
         return texto

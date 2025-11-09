@@ -125,3 +125,7 @@
 [2025-11-09 16:03:31] [INFO] [G_Code] G12
 [2025-11-09 16:03:31] [INFO] [G_Code] el resultado fue:
 >>>>>>> f50d78429fda27af87c669d7c3a2730e8302e11d
+[2025-11-09 16:50:04] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:56:00] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:56:41] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 16:57:24] [INFO] [Inicio] Usuario autenticado: Nico
