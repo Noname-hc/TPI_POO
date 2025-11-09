@@ -63,13 +63,13 @@ class RobotRPCClient:
     def login(self, username, password):
         self.username = username
         self.password = password
-        return self.call("login", username, password)
+        self._ensure_proxy()
+        return self.server.Inicio(username, password)
 
     def get_status(self):
         return self.call("get_status")
 
     def move_xyz(self, x, y, z):
-        self._revalidar()
         return self.call("move_xyz", float(x), float(y), float(z))
         
     def home(self):
@@ -106,7 +106,6 @@ class RobotRPCClient:
         return texto
         
     def reporte(self):
-        self._revalidar()
         return self.call("reporte")
 
 
@@ -116,9 +115,12 @@ class RobotRPCClient:
     def _revalidar(self):
         if not self.username or not self.password:
             raise Exception("Credenciales no establecidas")
+
+        self._ensure_proxy()
         try:
-            res = self.login(self.username, self.password)
-            if not isinstance(res,str) or "Bienvenido" not in res.lower():
-                raise Exception("Revalidacion fallida")
+            # Llamada directa al método Inicio del servidor
+            res = self.server.Inicio(self.username, self.password)
+            if not isinstance(res, str) or "bienvenido" not in res.lower():
+                raise Exception("Revalidación fallida")
         except Exception as e:
-            raise Exception(f"Error al revalidar sesion: {e}")
+            raise Exception(f"Error al revalidar sesión: {e}")

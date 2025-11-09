@@ -18,7 +18,8 @@ class RobotClientApp(tk.Tk):
         # frames
         self.current_frame = None
         self.show_login()
-
+        self.username = None
+    self.password = None
     def clear_frame(self):
         if self.current_frame:
             self.current_frame.destroy()
