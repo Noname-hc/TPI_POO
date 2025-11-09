@@ -54,22 +54,41 @@ int main(int argc, char* argv[])
       case 1:
         std::cout << "Ingrese un numero para G_Code" << std::endl;
         cin >> cont;
+        
+        if(cont == 0 || cont == 1){
+          parametros[0] = cont;
 
-        parametros[0] = cont;
+          std::cout << "********************** Llamada al metodo G_Code **********************" << std::endl ;
+          if(cont == 0){
+  
+            cout << "Ingrese posicion" << endl;
+            cin >> stringaux;
+            parametros[1] = stringaux;
+          }
 
-        std::cout << "********************** Llamada al metodo G_Code **********************" << std::endl ;
-        if(cont == 0){
-          cout << "Ingrese posicion" << endl;
-          cin >> stringaux;
-          parametros[1] = stringaux;
+          if (c.execute("G_Code", parametros, result))
+            std::cout << result << "\n\n";
+          else
+            std::cout << "Error en la llamada a 'G_Code'\n\n";
+          break;
+
+        }else{
+
+          try{
+            parametros = cont;
+            if (c.execute("G_Code", parametros, result)){
+              std::cout << result << std::endl;
+            }else{
+              std::cout << "Error en la llamada a 'G_Code'\n\n";
+              break;
+            }
+
+          }catch(...){
+              std::cerr << "Error al ingresar los parametros: " << std::endl;
+          }
         }
-
-        if (c.execute("G_Code", parametros, result))
-          std::cout << result << "\n\n";
-        else
-          std::cout << "Error en la llamada a 'G_Code'\n\n";
-        break;
-
+      break;
+      
       case 2:
         std::cout << "Cuantos parametros utilizara para filtrar el reporte? (0, 1 o 2)" << std::endl;
         cin >> cont;

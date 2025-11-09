@@ -15,6 +15,7 @@
 [2025-10-28 19:57:39] [ERROR] [G_Code] parametros debe contener entero, string
 [2025-10-28 19:59:09] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
 [2025-10-28 20:01:27] [ERROR] [G_Code] parametros debe contener entero, string
+<<<<<<< HEAD
 [2025-10-28 20:02:51] [ERROR] [G_Code] parametros debe contener entero, string
 [2025-10-29 09:18:27] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
 [2025-10-29 09:27:58] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
@@ -94,21 +95,33 @@
 [2025-11-09 12:41:23] [INFO] [G_Code] el resultado fue:
 [2025-11-09 12:41:31] [INFO] [Inicio] Usuario autenticado: Nacho
 [2025-11-09 12:41:31] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:05:05] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:05:23] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:20:02] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:20:08] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:20:10] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:20:12] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:22:17] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:22:26] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:24:59] [ERROR] [Inicio] Intento de logueo fallido para usuario: Nacho
-[2025-11-09 15:25:04] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:31:27] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:31:32] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:31:38] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:33:24] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:36:41] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 15:36:55] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:38:33] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:38:50] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 16:28:14] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:28:14] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:28:34] [INFO] [G_Code] G0 X7.000000 Y7.000000 Z7.000000
+[2025-11-09 16:28:34] [INFO] [G_Code] el resultado fue:
+=======
+[2025-11-09 15:27:48] [INFO] [G_Code] G1
+[2025-11-09 15:27:48] [INFO] [G_Code] el resultado fue:
+[2025-11-09 15:36:13] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 15:36:23] [INFO] [G_Code] M17
+[2025-11-09 15:36:23] [INFO] [G_Code] el resultado fue:
+[2025-11-09 15:43:08] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 15:43:21] [INFO] [G_Code] M17
+[2025-11-09 15:45:33] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 15:45:37] [INFO] [G_Code] M17
+[2025-11-09 15:56:06] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 15:56:14] [INFO] [G_Code] G100
+[2025-11-09 15:56:52] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 15:56:57] [INFO] [G_Code] M17
+[2025-11-09 15:58:54] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 15:59:23] [INFO] [G_Code] G1
+[2025-11-09 16:01:40] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:01:44] [INFO] [G_Code] M17
+[2025-11-09 16:01:44] [INFO] [G_Code] el resultado fue:
+[2025-11-09 16:02:45] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:02:49] [INFO] [G_Code] G12
+[2025-11-09 16:02:49] [INFO] [G_Code] el resultado fue:
+[2025-11-09 16:03:26] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 16:03:31] [INFO] [G_Code] G12
+[2025-11-09 16:03:31] [INFO] [G_Code] el resultado fue:
+>>>>>>> f50d78429fda27af87c669d7c3a2730e8302e11d
