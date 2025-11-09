@@ -1,17 +1,11 @@
 # client.py
-"""
-Cliente GUI simple en tkinter que usa XML-RPC.
-Estructura:
- - RobotRPCClient: wrapper de llamadas RPC. Cambiar métodos aquí si el servidor usa otros nombres.
- - LoginFrame: pide IP, puerto, usuario y contraseña.
- - MainFrame: botones para home, move, get_status, list_commands y un log.
-Cambiar SERVER_IP/PORT desde la UI antes de conectarse.
-"""
 
 import tkinter as tk
-
 from ui import *
 from RPCwrapper import *
+import logging as log
+
+log.basicConfig(filename="logs/cliente.log", level=log.INFO, format='[%(asctime)s]-[%(levelname)s]-[%(name)s]-%(message)s')
 
 class RobotClientApp(tk.Tk):
     def __init__(self):
@@ -44,5 +38,7 @@ class RobotClientApp(tk.Tk):
         self.current_frame.log_msg(f"Login exitoso: {username}. Conectado a {self.rpc_client.server_ip}:{self.rpc_client.server_port}")
 
 if __name__ == "__main__":
+    log = log.getLogger(__name__)
     app = RobotClientApp()
+    log.info("Cliente creado")
     app.mainloop()
