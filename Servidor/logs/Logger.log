@@ -27,3 +27,26 @@
 [2025-11-09 17:24:01] [INFO] [Inicio] Usuario autenticado: Nico
 [2025-11-09 17:24:07] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
 [2025-11-09 17:24:07] [INFO] [G_Code] el resultado fue:
+[2025-11-09 17:31:21] [ERROR] [Inicio] Intento de logueo fallido para usuario: foo
+[2025-11-09 17:31:21] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 17:31:21] [ERROR] [G_Code] El arreglo de tamaño un no es entero
+[2025-11-09 17:31:21] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:31:21] [ERROR] [Reporte] param[0] no entero
+[2025-11-09 17:34:21] [ERROR] [Inicio] Intento de logueo fallido para usuario: foo
+[2025-11-09 17:34:21] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 17:34:21] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 17:34:21] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:38:52] [ERROR] [Inicio] Intento de logueo fallido para usuario: foo
+[2025-11-09 17:38:52] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 17:38:52] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 17:38:52] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:42:17] [ERROR] [Inicio] Intento de logueo fallido para usuario: Nombre no valido
+[2025-11-09 17:42:17] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 17:42:17] [INFO] [G_Code] G90
+[2025-11-09 17:42:17] [INFO] [G_Code] el resultado fue:
+[2025-11-09 17:42:17] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:43:17] [ERROR] [Inicio] Intento de logueo fallido para usuario: Nombre no valido
+[2025-11-09 17:43:17] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 17:43:17] [INFO] [G_Code] G90
+[2025-11-09 17:43:17] [INFO] [G_Code] el resultado fue:
+[2025-11-09 17:43:17] [INFO] [Inicio] Usuario autenticado: Nico

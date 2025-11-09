@@ -106,6 +106,10 @@ class TestServerRPC(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         try:
+            # Cerrar el proxy para evitar sockets sin cerrar
+            with contextlib.suppress(Exception):
+                if hasattr(cls.proxy, "close"):
+                    cls.proxy.close()
             cls.ctx.__exit__(None, None, None)
         except Exception:
             pass
@@ -121,8 +125,7 @@ class TestServerRPC(unittest.TestCase):
 
     def test_02_login_invalido(self):
         # Debe devolver un string con el mensaje de error
-        res = self.proxy.Inicio("foo", "bar")
-        self.assertIsInstance(res, str)
+        res = self.proxy.Inicio("Nombre cualquiera", "contraseña cualquiera")
         self.assertTrue("invalid" in res.lower() or "invalida" in res.lower())
 
     def test_03_login_valido_usuario(self):
@@ -130,24 +133,23 @@ class TestServerRPC(unittest.TestCase):
         self.assertIsInstance(res, str)
         self.assertTrue("bienvenido" in res.lower())
         # Ahora G_Code debería permitir ejecutar (nivel 1)
-        # Usar un comando que no requiera parámetros: G90 (C_Absolutas)
-        # API espera [int, string]
-        out = self.proxy.G_Code([90, ""])  # G90
+        # Para G90 (C_Absolutas), el servidor acepta pasar solo el entero
+        out = self.proxy.G_Code(90)  # G90 sin cadena vacía
         self.assertIsInstance(out, str)
 
     def test_04_reporte_requiere_admin(self):
         # Después del login de usuario, Reporte debería fallar por permisos
         with self.assertRaises(Exception):
-            _ = self.proxy.Reporte([])
+            _ = self.proxy.Reporte()
 
     def test_05_login_admin_y_reporte_ok(self):
         res = self.proxy.Inicio("Nico", "777")
         self.assertIn("Bienvenido", res)
         # Sin parámetros: debe devolver todo el log como string
-        log_all = self.proxy.Reporte([])
+        log_all = self.proxy.Reporte()
         self.assertIsInstance(log_all, str)
-        # Filtro por nivel (ej: INFO=0)
-        log_info = self.proxy.Reporte([0])
+        # Filtro por nivel (ej: INFO=0) pasando un entero como único argumento
+        log_info = self.proxy.Reporte(0)
         self.assertIsInstance(log_info, str)
 
 
