@@ -42,7 +42,7 @@ class RobotRPCClient:
         """
         Método genérico para llamar a RPC. Captura excepciones y las re-lanza.
         """
-        self.relavidar()
+        self._revalidar()
         self._ensure_proxy()
         if method_name not in self.methods:
             raise AttributeError(f"Método '{method_name}' no definido en métodos RPC locales.")
@@ -61,6 +61,8 @@ class RobotRPCClient:
 
     # Wrappers específicos (facilitan el uso en UI, pero podés llamarlos por call())
     def login(self, username, password):
+        self.username = username
+        self.password = password
         return self.call("login", username, password)
 
     def get_status(self):
@@ -112,11 +114,11 @@ class RobotRPCClient:
         return self.server.Help(tipo)
 
     def _revalidar(self):
-        if not self.username or not self.password
+        if not self.username or not self.password:
             raise Exception("Credenciales no establecidas")
         try:
-            res = sel.client.Inicio(sel.username, self.password)
-            if nor res:
+            res = self.login(self.username, self.password)
+            if not isinstance(res,str) or "Bienvenido" not in res.lower():
                 raise Exception("Revalidacion fallida")
         except Exception as e:
             raise Exception(f"Error al relavidar sesion: {e}")
