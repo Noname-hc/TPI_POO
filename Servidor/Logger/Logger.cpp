@@ -90,7 +90,7 @@ void Logger::log(LogLevel nivel,LogDomain dominio, const std::string mensaje)
     if(!logFile.is_open()){
         throw std::runtime_error(std::string("No se pudo escribir en el archivo de log: ") + path);
     }
-    logFile << "[" << hora << "] [" << status << "] [" << domain <<"] " << mensaje << std::endl;
+    logFile << "[" << hora << "],[" << status << "],[" << domain <<"]," << mensaje << std::endl;
     logFile.flush();
 }
 

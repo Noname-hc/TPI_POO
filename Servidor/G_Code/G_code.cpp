@@ -64,6 +64,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
             
         break;
     }
+    this->Nivel_de_Acceso = 0; // Reseteamos el nivel de acceso
 
     log->abrirLogger();
 

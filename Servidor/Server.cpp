@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <thread>
 
 #include "../Libreria_RPC/XmlRpc.h"
 #include "../Libreria_RPC/XmlRpcSocket.h"
@@ -9,10 +10,12 @@
 #include "Reporte/Reporte.h"
 #include "Help/Help.hpp"
 
+
+
 int main(int argc, char* argv[]){
 
     if (argc != 2) {
-        std::cerr << "Uso: miserver N_Port\n";
+        std::cerr << "Uso: miserver N_Port y ,opcionalmente, usuario contraseña\n";
         return 1;
     }
     int port = atoi(argv[1]);

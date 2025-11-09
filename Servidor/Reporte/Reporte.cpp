@@ -111,8 +111,19 @@ void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result) 
     if (Nivel_de_Acceso == 1) {
         // usuario sin permiso
         throw XmlRpc::XmlRpcException("No autorizado");
+    } else if(Nivel_de_Acceso == 2){
+        // Nivel_de_Acceso >= 2 -> permitido
+
+    }else{
+        try{
+            this->Log->log(LogLevel::ERROR, LogDomain::G_Code, "Error al logearse");       
+
+        }catch(std::runtime_error &e){
+            std::cout << e.what() << std::endl;
+        }
+        throw XmlRpc::XmlRpcException("Error al logearse");
     }
-    // Nivel_de_Acceso >= 2 -> permitido
+    this->Nivel_de_Acceso = 0; // Reseteamos el nivel de acceso
 
     // Si params no es válido -> devolver todo el log
     if (!params.valid()) {
