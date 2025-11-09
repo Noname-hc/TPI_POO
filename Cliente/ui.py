@@ -121,7 +121,7 @@ class MainFrame(tk.Frame):
         extra_frame= tk.LabelFrame(self, text="Funciones adicionales")
         extra_frame.pack(fill= "x", padx=5, pady=5)
 
-        k.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=0, padx=5, pady=5)
+        tk.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=0, padx=5, pady=5)
         tk.Button(extra_frame, text="HelpMove", command=self.help_move).grid(row=0, column=1, padx=5, pady=5)
         tk.Button(extra_frame, text="HelpReporte", command=self.help_reporte).grid(row=0, column=2, padx=5, pady=5)
         
@@ -191,7 +191,7 @@ class MainFrame(tk.Frame):
                 self.master.after(0, lambda: self.log_msg(f"ERROR reporte: {e}"))
         threading.Thread(target=t, daemon=True).start()
 
-     def help_move(self):
+    def help_move(self):
         def t():
             try:
                 res = self.rpc.help_move()

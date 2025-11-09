@@ -12,8 +12,8 @@ class RobotRPCClient:
             "get_status": "get_status",  # rpc.get_status()
              "move_xyz": "G_Code",   # rpc.G_Code([4,"x,y,z"])
             "home": "home",              # rpc.home()
-            "list_commands": "list_commands"  # rpc.list_commands()
-            "help_move": "G_Code_help"   #lista de comandos
+            "list_commands": "list_commands",  # rpc.list_commands()
+            "help_move": "G_Code_help",   #lista de comandos
             "reporte": "Reporte"
                 }
 
