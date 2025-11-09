@@ -26,10 +26,10 @@ public:
             str_aux += "  2 -> ERROR\n";
             str_aux += "  3 -> DEBUG\n\n";
             str_aux += "  El segundo es el dominio al cual acceder:\n";
-            str_aux += "  0 -> main";
-            str_aux += "  1 -> G_Code";
-            str_aux += "  2 -> Reporte";
-            str_aux += "  3 -> Inicio";
+            str_aux += "  0 -> main\n";
+            str_aux += "  1 -> G_Code\n";
+            str_aux += "  2 -> Reporte\n";
+            str_aux += "  3 -> Inicio\n";
             result = str_aux;
         }
     }

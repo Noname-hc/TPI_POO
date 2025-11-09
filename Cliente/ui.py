@@ -82,6 +82,7 @@ class MainFrame(tk.Frame):
         self.rpc = rpc_client
         self.username = username
         self.on_logout = on_logout
+        self.help_visible = False
         self.create_widgets()
 
     def create_widgets(self):
@@ -98,25 +99,25 @@ class MainFrame(tk.Frame):
         move_frame = tk.LabelFrame(self, text="Movimiento manual")
         move_frame.pack(fill="x", padx=5, pady=5)
 
-        tk.Label(move_frame, text="X:").grid(row=0, column=0)
-        self.x_entry = tk.Entry(move_frame, width=8)
-        self.x_entry.insert(0, "0.0")
-        self.x_entry.grid(row=0, column=1, padx=3)
-
-        tk.Label(move_frame, text="Y:").grid(row=0, column=2)
-        self.y_entry = tk.Entry(move_frame, width=8)
-        self.y_entry.insert(0, "170.0")
-        self.y_entry.grid(row=0, column=3, padx=3)
-
-        tk.Label(move_frame, text="Z:").grid(row=0, column=4)
-        self.z_entry = tk.Entry(move_frame, width=8)
-        self.z_entry.insert(0, "120.0")
-        self.z_entry.grid(row=0, column=5, padx=3)
-
-        tk.Label(move_frame, text="G-Code:").grid(row=0, column=6)
+        tk.Label(move_frame, text="G-Code:").grid(row=0, column=0)
         self.gcode_entry = tk.Entry(move_frame, width=8)
         self.gcode_entry.insert(0, "0")
-        self.gcode_entry.grid(row=0, column=7, padx=3)
+        self.gcode_entry.grid(row=0, column=1, padx=3)
+
+        tk.Label(move_frame, text="X:").grid(row=0, column=2)
+        self.x_entry = tk.Entry(move_frame, width=8)
+        self.x_entry.insert(0, "0.0")
+        self.x_entry.grid(row=0, column=3, padx=3)
+
+        tk.Label(move_frame, text="Y:").grid(row=0, column=4)
+        self.y_entry = tk.Entry(move_frame, width=8)
+        self.y_entry.insert(0, "170.0")
+        self.y_entry.grid(row=0, column=5, padx=3)
+
+        tk.Label(move_frame, text="Z:").grid(row=0, column=6)
+        self.z_entry = tk.Entry(move_frame, width=8)
+        self.z_entry.insert(0, "120.0")
+        self.z_entry.grid(row=0, column=7, padx=3)
 
         move_btn = tk.Button(move_frame, text="Move XYZ", command=self.move_xyz)
         move_btn.grid(row=0, column=8, padx=8)
@@ -128,9 +129,33 @@ class MainFrame(tk.Frame):
         extra_frame = tk.LabelFrame(self, text="Funciones adicionales")
         extra_frame.pack(fill="x", padx=5, pady=5)
 
-        tk.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=0, padx=5, pady=5)
-        tk.Button(extra_frame, text="HelpMove", command=self.help_move).grid(row=0, column=1, padx=5, pady=5)
-        tk.Button(extra_frame, text="HelpReporte", command=self.help_reporte).grid(row=0, column=2, padx=5, pady=5)
+        # --- Reporte por nivel y dominio ---
+        tk.Label(extra_frame, text="Nivel:").grid(row=0, column=0, padx=2, pady=5)
+        self.nivel_var = tk.StringVar(value="0 -> INFO")
+        nivel_opts = ["0 -> INFO", "1 -> WARNING", "2 -> ERROR", "3 -> DEBUG"]
+        tk.OptionMenu(extra_frame, self.nivel_var, *nivel_opts).grid(row=0, column=1, padx=2)
+
+        tk.Label(extra_frame, text="Dominio:").grid(row=0, column=2, padx=2)
+        self.dominio_var = tk.StringVar(value="0 -> main")
+        dominio_opts = ["0 -> main", "1 -> G_Code", "2 -> Reporte", "3 -> Inicio"]
+        tk.OptionMenu(extra_frame, self.dominio_var, *dominio_opts).grid(row=0, column=3, padx=2)
+
+        tk.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=4, padx=5, pady=5)
+
+        # --- Sección de ayuda (debajo de Reporte) ---
+        help_section = tk.LabelFrame(self, text="Ayuda")
+        help_section.pack(fill="x", padx=5, pady=5)
+
+        self.help_frame = tk.Frame(help_section)
+        self.help_frame.pack()
+
+        self.btn_help = tk.Button(self.help_frame, text="Help ▼", command=self.toggle_help_buttons)
+        self.btn_help.pack()
+
+        # Subbotones (inicialmente ocultos)
+        self.btn_help_move = tk.Button(self.help_frame, text="HelpMove", command=self.help_move)
+        self.btn_help_gcode = tk.Button(self.help_frame, text="Help G_Code", command=self.help_gcode)
+        self.btn_help_reporte = tk.Button(self.help_frame, text="Help Reporte", command=self.help_reporte)
 
         # --- Estado y comandos ---
         info_frame = tk.Frame(self)
@@ -150,13 +175,23 @@ class MainFrame(tk.Frame):
         self.log = scrolledtext.ScrolledText(right, height=12, state="disabled")
         self.log.pack(fill="both", expand=True)
 
-        #boton help
-        self.btn_help = tk.Button(self.frame_botones, text="Help", command=self.toggle_help_buttons)
-        self.btn_help.pack(pady=5)
-        self.btn_help_gcode = tk.Button(self.frame_botones, text="Help G_Code", command=self.help_gcode)
-        self.btn_help_reporte = tk.Button(self.frame_botones, text="Help Reporte", command=self.help_reporte)
-        self.help_visible = False 
+    # --- Función toggle para desplegar/ocultar subbotones ---
+    def toggle_help_buttons(self):
+        if not self.help_visible:
+            self.btn_help_move.pack(pady=2)
+            self.btn_help_gcode.pack(pady=2)
+            self.btn_help_reporte.pack(pady=2)
+            self.btn_help.config(text="Help ▲")
+            self.help_visible = True
+        else:
+            self.btn_help_move.pack_forget()
+            self.btn_help_gcode.pack_forget()
+            self.btn_help_reporte.pack_forget()
+            self.btn_help.config(text="Help ▼")
+            self.help_visible = False
 
+
+    # --- Logging ---
     def log_msg(self, msg):
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         self.log.configure(state="normal")
@@ -164,14 +199,13 @@ class MainFrame(tk.Frame):
         self.log.see("end")
         self.log.configure(state="disabled")
 
-    # --- Wrappers que ejecutan en hilo ---
+    # --- RPC Wrappers ---
     def move_xyz(self):
         x = self.x_entry.get().strip()
         y = self.y_entry.get().strip()
         z = self.z_entry.get().strip()
         g_code = self.gcode_entry.get().strip()
 
-        # Validación
         try:
             float(x); float(y); float(z)
         except ValueError:
@@ -186,9 +220,7 @@ class MainFrame(tk.Frame):
 
         def do_move():
             try:
-                print(f"{g_code}, [{posicion}]")
                 res = self.rpc.move_xyz(g_code, posicion)
-                
                 self.master.after(0, lambda: self.log_msg(f"move_xyz(G{g_code}, {x},{y},{z}) -> {res}"))
             except Exception as e:
                 self.master.after(0, lambda: self.log_msg(f"ERROR move_xyz: {e}"))
@@ -196,78 +228,43 @@ class MainFrame(tk.Frame):
         threading.Thread(target=do_move, daemon=True).start()
 
     def home(self):
-        def do_home():
-            try:
-                res = self.rpc.home()
-                self.master.after(0, lambda: self.log_msg(f"home() -> {res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR home: {e}"))
-        threading.Thread(target=do_home, daemon=True).start()
+        threading.Thread(target=lambda: self._rpc_call("home", self.rpc.home), daemon=True).start()
 
     def reporte(self):
-        def t():
+        nivel = self.nivel_var.get().split("->")[0].strip()
+        dominio = self.dominio_var.get().split("->")[0].strip()
+
+        def do_reporte():
             try:
-                res = self.rpc.reporte()
-                self.master.after(0, lambda: self.log_msg(f"Reporte -> {res}"))
+                res = self.rpc.reporte(nivel, dominio)
+                self.master.after(0, lambda: self.log_msg(f"Reporte({nivel}, {dominio}) -> {res}"))
             except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR reporte: {e}"))
-        threading.Thread(target=t, daemon=True).start()
+                self.master.after(0, lambda: self.log_msg(f"ERROR Reporte: {e}"))
+
+        threading.Thread(target=do_reporte, daemon=True).start()
 
     def help_move(self):
-        def t():
-            try:
-                res = self.rpc.help_move()
-                self.master.after(0, lambda: self.log_msg(f"HelpMove -> {res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR help_move: {e}"))
-        threading.Thread(target=t, daemon=True).start()
-
-    def toggle_help_buttons(self):
-    if not self.help_visible:
-        self.btn_help_gcode.pack(pady=2)
-        self.btn_help_reporte.pack(pady=2)
-        self.help_visible = True
-    else:
-        self.btn_help_gcode.pack_forget()
-        self.btn_help_reporte.pack_forget()
-        self.help_visible = False
+        threading.Thread(target=lambda: self._rpc_call("HelpMove", self.rpc.help_move), daemon=True).start()
 
     def help_gcode(self):
-        def t():
-            try:
-                res = self.rpc.help("G_Code")
-                self.master.after(0, lambda: self.log_msg(f"Help G_Code ->\n{res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR Help G_Code: {e}"))
-        threading.Thread(target=t, daemon=True).start()
-
+        threading.Thread(target=lambda: self._rpc_call("Help G_Code", lambda: self.rpc.help("G_Code")), daemon=True).start()
 
     def help_reporte(self):
-        def t():
-            try:
-                res = self.rpc.help("Reporte")
-                self.master.after(0, lambda: self.log_msg(f"Help Reporte ->\n{res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR Help Reporte: {e}"))
-        threading.Thread(target=t, daemon=True).start()
+        threading.Thread(target=lambda: self._rpc_call("Help Reporte", lambda: self.rpc.help("Reporte")), daemon=True).start()
 
     def get_status(self):
-        def do_status():
-            try:
-                res = self.rpc.get_status()
-                self.master.after(0, lambda: self.log_msg(f"get_status() -> {res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR get_status: {e}"))
-        threading.Thread(target=do_status, daemon=True).start()
+        threading.Thread(target=lambda: self._rpc_call("get_status", self.rpc.get_status), daemon=True).start()
 
     def list_commands(self):
-        def do_list():
-            try:
-                res = self.rpc.list_commands()
-                self.master.after(0, lambda: self.log_msg(f"list_commands() -> {res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR list_commands: {e}"))
-        threading.Thread(target=do_list, daemon=True).start()
+        threading.Thread(target=lambda: self._rpc_call("list_commands", self.rpc.list_commands), daemon=True).start()
+
+    # --- Helper para llamadas RPC en hilo ---
+    def _rpc_call(self, name, func):
+        try:
+            res = func()
+            self.master.after(0, lambda: self.log_msg(f"{name} -> {res}"))
+        except Exception as e:
+            self.master.after(0, lambda: self.log_msg(f"ERROR {name}: {e}"))
 
     def logout(self):
         if messagebox.askyesno("Logout", "Cerrar sesión y volver al login?"):
