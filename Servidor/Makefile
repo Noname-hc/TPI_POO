@@ -6,7 +6,7 @@ includes += ../Servidor/Logger/Logger.cpp
 includes += ../Servidor/Reporte/Reporte.cpp
 includes += ../Servidor/Serial_Com/Serial_Com.cpp
 
-flag_version = -std=c++23
+flag_version = -std=c++17
 
 main:  $(includes)
 	g++ $(flag_version) $(includes) -o Server.exe
