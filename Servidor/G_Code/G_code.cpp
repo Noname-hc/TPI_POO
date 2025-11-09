@@ -235,6 +235,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
         std::cout << e.what();
     }
 
+    std::cout << result << std::endl;
 // =======================================================================================
 }
 
