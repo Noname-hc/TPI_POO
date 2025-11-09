@@ -208,14 +208,27 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
 
     }
 
+    //===========================================================================================================
+
     Serial_Com Com;
     if(str_aux.size() != 0){
         char Buffer[128];
-        Com.T_R_Init(19600, 2, "/dev/ttyACM0");
-        Com.ClearInput();
+        Com.T_R_Init(115200, 2, "/dev/ttyACM0");
+        this->log->log(LogLevel::DEBUG, LogDomain::G_Code, "iniciando comunicacion");
+        //Com.ClearInput();
+        Com.Recepcion(Buffer, sizeof(Buffer), 3000);
+        char mensaje[300];
+        strcpy(mensaje, "Recibiendo en bruto: ");
+        this->log->log(LogLevel::DEBUG, LogDomain::G_Code, mensaje);
 
         Com.Transmision(str_aux);
+        this->log->log(LogLevel::DEBUG, LogDomain::G_Code, "Transmitiendo:" + str_aux);
         Com.Recepcion(Buffer, sizeof(Buffer), 3000);
+
+        //char mensaje[300];
+        strcpy(mensaje, "Recibiendo en bruto: ");
+        strcat(mensaje, Buffer);
+        this->log->log(LogLevel::DEBUG, LogDomain::G_Code, mensaje);
 
     }else{
         try{

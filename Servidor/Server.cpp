@@ -23,9 +23,9 @@ int main(int argc, char* argv[]){
     // S es el servidor
     XmlRpcServer S;
     Logger Log("logs/Logger.log");
-    // Registro de metodos en el servidor
-    // mediante el uso del constructor heredado.
     G_Code g_code(&Log, 0,&S);
+
+
     g_code.setPath("logs/Trayectorias.log");
     g_code.openFile();
 
