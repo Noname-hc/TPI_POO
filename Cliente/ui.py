@@ -150,6 +150,13 @@ class MainFrame(tk.Frame):
         self.log = scrolledtext.ScrolledText(right, height=12, state="disabled")
         self.log.pack(fill="both", expand=True)
 
+        #boton help
+        self.btn_help = tk.Button(self.frame_botones, text="Help", command=self.toggle_help_buttons)
+        self.btn_help.pack(pady=5)
+        self.btn_help_gcode = tk.Button(self.frame_botones, text="Help G_Code", command=self.help_gcode)
+        self.btn_help_reporte = tk.Button(self.frame_botones, text="Help Reporte", command=self.help_reporte)
+        self.help_visible = False 
+
     def log_msg(self, msg):
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         self.log.configure(state="normal")
@@ -215,8 +222,34 @@ class MainFrame(tk.Frame):
                 self.master.after(0, lambda: self.log_msg(f"ERROR help_move: {e}"))
         threading.Thread(target=t, daemon=True).start()
 
+    def toggle_help_buttons(self):
+    if not self.help_visible:
+        self.btn_help_gcode.pack(pady=2)
+        self.btn_help_reporte.pack(pady=2)
+        self.help_visible = True
+    else:
+        self.btn_help_gcode.pack_forget()
+        self.btn_help_reporte.pack_forget()
+        self.help_visible = False
+
+    def help_gcode(self):
+        def t():
+            try:
+                res = self.rpc.help("G_Code")
+                self.master.after(0, lambda: self.log_msg(f"Help G_Code ->\n{res}"))
+            except Exception as e:
+                self.master.after(0, lambda: self.log_msg(f"ERROR Help G_Code: {e}"))
+        threading.Thread(target=t, daemon=True).start()
+
+
     def help_reporte(self):
-        messagebox.showinfo("HelpReporte", "Esta sección se completará más adelante.")
+        def t():
+            try:
+                res = self.rpc.help("Reporte")
+                self.master.after(0, lambda: self.log_msg(f"Help Reporte ->\n{res}"))
+            except Exception as e:
+                self.master.after(0, lambda: self.log_msg(f"ERROR Help Reporte: {e}"))
+        threading.Thread(target=t, daemon=True).start()
 
     def get_status(self):
         def do_status():

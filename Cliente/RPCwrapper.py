@@ -14,7 +14,8 @@ class RobotRPCClient:
             "home": "home",              # rpc.home()
             "list_commands": "list_commands",  # rpc.list_commands()
             "help_move": "G_Code_help",   #lista de comandos
-            "reporte": "Reporte"
+            "reporte": "Reporte",  #Metodo remoto help
+            "Help": "Help"
                 }
 
     def _ensure_proxy(self):
@@ -102,3 +103,6 @@ class RobotRPCClient:
         
     def reporte(self):
         return self.call("reporte")
+
+    def help(self, tipo):
+        return self.server.Help(tipo)
