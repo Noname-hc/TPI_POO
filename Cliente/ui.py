@@ -151,9 +151,12 @@ class MainFrame(tk.Frame):
         self.log.pack(fill="both", expand=True)
 
         #boton help
+        self.frame_botones = tk.Frame(self)
+        self.frame_botones.pack(fill="x", padx=5, pady=5)
+
         self.btn_help = tk.Button(self.frame_botones, text="Help", command=self.toggle_help_buttons)
         self.btn_help.pack(pady=5)
-        
+
         self.btn_help_gcode = tk.Button(self.frame_botones, text="Help G_Code", command=self.help_gcode)
         self.btn_help_reporte = tk.Button(self.frame_botones, text="Help Reporte", command=self.help_reporte)
         self.help_visible = False 
