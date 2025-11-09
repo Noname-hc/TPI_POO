@@ -32,26 +32,32 @@ def make_ui(server):
     out = scrolledtext.ScrolledText(root, height=10)
     out.pack(fill="both", expand=True, padx=6, pady=6)
 
+    # Barra de estado sencilla
+    status = tk.Label(root, text="Listo", anchor="w", fg="gray")
+    status.pack(fill="x", padx=6, pady=(0,6))
+
     def log(msg):
         out.insert("end", msg + "\n")
         out.see("end")
 
-    def send_a(a, extra=None):
+    def send_a(a, extra=""):
         try:
-            if extra:
-                res = server.G_Code([a, extra])
-            else:
-                res = server.G_Code(a)
+            status.config(text="Enviando comando...", fg="orange")
+            root.update_idletasks()
+            # El servidor expone G_Code(int, string): enviar dos parámetros.
+            res = server.G_Code(a, extra)
             log(str(res))
+            status.config(text="Comando enviado correctamente", fg="green")
         except Exception as e:
             messagebox.showerror("RPC", str(e))
+            status.config(text=f"Error al enviar: {e}", fg="red")
 
     # Botones superiores
     top = tk.Frame(root); top.pack(fill="x", padx=6)
-    tk.Button(top, text="G90 Abs", command=lambda: send_a(90)).pack(side="left", padx=2, pady=4)
-    tk.Button(top, text="G91 Rel", command=lambda: send_a(91)).pack(side="left", padx=2)
-    tk.Button(top, text="G92 Set0", command=lambda: send_a(92)).pack(side="left", padx=2)
-    tk.Button(top, text="G28 Home", command=lambda: send_a(28)).pack(side="left", padx=2)
+    tk.Button(top, text="G90 Abs", command=lambda: send_a(90, "")).pack(side="left", padx=2, pady=4)
+    tk.Button(top, text="G91 Rel", command=lambda: send_a(91, "")).pack(side="left", padx=2)
+    tk.Button(top, text="G92 Set0", command=lambda: send_a(92, "")).pack(side="left", padx=2)
+    tk.Button(top, text="G28 Home", command=lambda: send_a(28, "")).pack(side="left", padx=2)
 
     # Movimiento lineal (G0 con XYZ)
     tk.Button(f, text="Mover", command=lambda: send_a(0, f"{x.get()},{y.get()},{z.get()}"))\
@@ -59,18 +65,18 @@ def make_ui(server):
 
     # Línea de botones M-codes
     m = tk.Frame(root); m.pack(fill="x", padx=6)
-    tk.Button(m, text="Bomba ON", command=lambda: send_a(10001)).pack(side="left", padx=2, pady=2)
-    tk.Button(m, text="Bomba OFF", command=lambda: send_a(10002)).pack(side="left", padx=2)
-    tk.Button(m, text="Griper ON", command=lambda: send_a(10003)).pack(side="left", padx=2)
-    tk.Button(m, text="Griper OFF", command=lambda: send_a(10005)).pack(side="left", padx=2)
-    tk.Button(m, text="Laser ON", command=lambda: send_a(10006)).pack(side="left", padx=2)
-    tk.Button(m, text="Laser OFF", command=lambda: send_a(10007)).pack(side="left", padx=2)
-    tk.Button(m, text="Motor ON", command=lambda: send_a(100017)).pack(side="left", padx=2)
-    tk.Button(m, text="Motor OFF", command=lambda: send_a(100018)).pack(side="left", padx=2)
-    tk.Button(m, text="Fan ON", command=lambda: send_a(1000106)).pack(side="left", padx=2)
-    tk.Button(m, text="Fan OFF", command=lambda: send_a(1000107)).pack(side="left", padx=2)
-    tk.Button(m, text="Reporte (M114)", command=lambda: send_a(1000114)).pack(side="left", padx=2)
-    tk.Button(m, text="Finales (M119)", command=lambda: send_a(1000119)).pack(side="left", padx=2)
+    tk.Button(m, text="Bomba ON", command=lambda: send_a(10001, "")).pack(side="left", padx=2, pady=2)
+    tk.Button(m, text="Bomba OFF", command=lambda: send_a(10002, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Griper ON", command=lambda: send_a(10003, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Griper OFF", command=lambda: send_a(10005, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Laser ON", command=lambda: send_a(10006, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Laser OFF", command=lambda: send_a(10007, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Motor ON", command=lambda: send_a(100017, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Motor OFF", command=lambda: send_a(100018, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Fan ON", command=lambda: send_a(1000106, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Fan OFF", command=lambda: send_a(1000107, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Reporte (M114)", command=lambda: send_a(1000114, "")).pack(side="left", padx=2)
+    tk.Button(m, text="Finales (M119)", command=lambda: send_a(1000119, "")).pack(side="left", padx=2)
 
     return root
 
@@ -94,4 +100,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

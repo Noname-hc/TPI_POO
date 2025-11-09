@@ -64,3 +64,33 @@
 [2025-11-09 12:23:02] [ERROR] [G_Code] Parametros esperados para array = 2
 [2025-11-09 12:23:05] [ERROR] [G_Code] Parametros esperados para array = 2
 [2025-11-09 12:23:12] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 12:27:04] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:27:04] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:27:08] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 12:30:27] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:30:28] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:30:30] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 12:30:33] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 12:30:46] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 12:36:37] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:36:37] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:36:40] [INFO] [G_Code] G90
+[2025-11-09 12:36:40] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:36:51] [INFO] [G_Code] G0 X1.000000 Y1.000000 Z1.000000
+[2025-11-09 12:36:51] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:36:54] [INFO] [G_Code] M17
+[2025-11-09 12:36:54] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:38:29] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:38:29] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:38:36] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
+[2025-11-09 12:38:36] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:40:59] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:40:59] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 12:41:01] [INFO] [G_Code] M1
+[2025-11-09 12:41:01] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:41:14] [INFO] [G_Code] G0 X1.000000 Y1.000000 Z35.000000
+[2025-11-09 12:41:14] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:41:23] [INFO] [G_Code] G0 X1.000000 Y22.000000 Z35.000000
+[2025-11-09 12:41:23] [INFO] [G_Code] el resultado fue:
+[2025-11-09 12:41:31] [INFO] [Inicio] Usuario autenticado: Nacho
+[2025-11-09 12:41:31] [INFO] [Inicio] Usuario autenticado: Nacho
