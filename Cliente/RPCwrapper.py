@@ -119,4 +119,4 @@ class RobotRPCClient:
             if nor res:
                 raise Exception("Revalidacion fallida")
         except Exception as e:
-            raise Exception(f"Error al relavidar sesion: {e}")
+            raise Exception(f"Error al revalidar sesion: {e}")
