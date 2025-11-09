@@ -106,8 +106,7 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
     if(this->gcode) this->gcode->setLvL((nivel==static_cast<int>(UserLvL::admin))?2:1);
 
     if(nivel == static_cast<int>(UserLvL::admin)){
-        result = true;
-        //result = std::string("Bienvenido administrador");
+        result = std::string("Bienvenido administrador");
     } else {
         result = std::string("Bienvenido cliente");
     }
