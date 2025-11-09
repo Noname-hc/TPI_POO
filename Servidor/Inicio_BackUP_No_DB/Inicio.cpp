@@ -56,13 +56,15 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
                 case UserLvL::usuario:
                     Repo->setLvL(1);
                     gcode->setLvL(1);
-                    result = "Bienvenido cliente";
+                    //result = "Bienvenido cliente";
+                    result = true;
                 break;
 
                 case UserLvL::admin:
                     Repo->setLvL(2);
                     gcode->setLvL(2);
-                    result = "Bienvenido administrador";
+                    //result = "Bienvenido administrador";
+                    result = true;
                 break;
 
                 default:
@@ -72,6 +74,5 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
                 break;
             }
         }
-
     }
 }

@@ -74,7 +74,7 @@ class RobotRPCClient:
         return self.call("list_commands")
 
     def help_move(self):
-        return self.call("help_mmove")
+        return self.call("help_move")
     
     def reporte(self):
         return self.call("reporte")
