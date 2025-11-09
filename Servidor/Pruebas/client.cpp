@@ -56,15 +56,15 @@ int main(int argc, char* argv[])
         cin >> cont;
         
         if(cont == 0 || cont == 1){
+          parametros.setSize(2);
           parametros[0] = cont;
 
           std::cout << "********************** Llamada al metodo G_Code **********************" << std::endl ;
-          if(cont == 0){
   
-            cout << "Ingrese posicion" << endl;
-            cin >> stringaux;
-            parametros[1] = stringaux;
-          }
+          cout << "Ingrese posicion" << endl;
+          cin >> stringaux;
+          parametros[1] = stringaux;
+          
 
           if (c.execute("G_Code", parametros, result))
             std::cout << result << "\n\n";

@@ -87,7 +87,7 @@ void G_Code::execute(XmlRpcValue& params, XmlRpcValue& result){ // params[0] es 
             throw XmlRpc::XmlRpcException("El arreglo de tamaño un no es entero");
         }
 
-    }else if(params.size() >= 2){ // si es arreglo el tamaño debe ser igual a 2
+    }else if(params.size() != 2){ // si es arreglo el tamaño debe ser igual a 2
         log->log(LogLevel::ERROR, LogDomain::G_Code, "Parametros esperados para array = 2");
         throw XmlRpc::XmlRpcException("Parametros esperados para array = 2");
 

@@ -13,119 +13,17 @@
 [2025-10-28 19:56:26] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
 [2025-10-28 19:56:36] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
 [2025-10-28 19:57:39] [ERROR] [G_Code] parametros debe contener entero, string
-[2025-10-28 19:59:09] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente
-[2025-10-28 20:01:27] [ERROR] [G_Code] parametros debe contener entero, string
-<<<<<<< HEAD
-[2025-10-28 20:02:51] [ERROR] [G_Code] parametros debe contener entero, string
-[2025-10-29 09:18:27] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
-[2025-10-29 09:27:58] [ERROR] [MAIN] No se pudo establecer conexion con el cliente
-[2025-10-29 14:59:04] [ERROR] [G_Code] Falta Loguearse
-[2025-10-29 15:07:53] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
-[2025-10-29 15:10:33] [INFO] [G_Code] G0 X2.200000 Y2.300000 Z4.800000
-[2025-10-29 15:15:01] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
-[2025-10-29 15:15:21] [INFO] [G_Code] M1
-[2025-10-29 15:15:38] [INFO] [G_Code] G0 X2.343200 Y1.230000 Z4.000000
-[2025-10-29 15:37:05] [ERROR] [G_Code] Falta Loguearse
-[2025-10-29 15:37:27] [INFO] [G_Code] M2
-[2025-10-29 15:37:35] [ERROR] [Reporte] el primer parametro no esta en rango
-[2025-10-29 15:43:06] [ERROR] [Reporte] Hay valores no enteros en los parametros
-[2025-10-29 16:03:12] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
-[2025-10-29 16:03:17] [INFO] [G_Code] G3
-[2025-10-29 16:15:17] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
-[2025-10-29 16:17:03] [ERROR] [Reporte] Falta logearse
-[2025-10-29 16:17:44] [ERROR] [Reporte] Falta logearse
-[2025-10-29 16:18:00] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
-[2025-10-29 16:29:44] [INFO] [G_Code] G0 X1.000000 Y2.000000 Z3.000000
-[2025-10-29 16:29:53] [INFO] [G_Code] G1
-[2025-10-29 17:09:21] [INFO] [G_Code] G0 X1.000000 Y1.000000 Z1.000000
-[2025-10-29 17:14:49] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
-[2025-10-29 17:14:56] [INFO] [G_Code] G1
-[2025-10-29 19:27:27] [INFO] [G_Code] M116
-[2025-10-29 19:27:42] [INFO] [G_Code] G0 X2.210000 Y2.000000 Z1.000000
-[2025-10-29 19:27:54] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
-[2025-10-29 19:55:28] [ERROR] [Reporte] parametros deben ser enteros [domain, level]
-[2025-10-29 19:55:52] [INFO] [G_Code] G3
-[2025-10-29 20:29:52] [ERROR] [Reporte] Falta logearse
-[2025-10-29 20:30:14] [ERROR] [Reporte] Falta logearse
-[2025-10-29 20:32:23] [ERROR] [G_Code] Falta Loguearse
-[2025-10-29 20:32:42] [INFO] [G_Code] G0 X1.000000 Y2.000000 Z34.343000
-[2025-10-30 17:00:47] [ERROR] [Reporte] Falta logearse
-[2025-10-30 17:01:04] [ERROR] [Reporte] Falta logearse
-[2025-10-30 17:02:00] [ERROR] [G_Code] Ultima posicion para G0 invalida
-[2025-11-08 21:46:06] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-08 21:49:35] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-08 21:49:53] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:18:51] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:22:33] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:22:34] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:22:41] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:22:53] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:22:56] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:23:00] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:23:02] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:23:05] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:23:12] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:27:04] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:27:04] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:27:08] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:30:27] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:30:28] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:30:30] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:30:33] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:30:46] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 12:36:37] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:36:37] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:36:40] [INFO] [G_Code] G90
-[2025-11-09 12:36:40] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:36:51] [INFO] [G_Code] G0 X1.000000 Y1.000000 Z1.000000
-[2025-11-09 12:36:51] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:36:54] [INFO] [G_Code] M17
-[2025-11-09 12:36:54] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:38:29] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:38:29] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:38:36] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
-[2025-11-09 12:38:36] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:40:59] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:40:59] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 12:41:01] [INFO] [G_Code] M1
-[2025-11-09 12:41:01] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:41:14] [INFO] [G_Code] G0 X1.000000 Y1.000000 Z35.000000
-[2025-11-09 12:41:14] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:41:23] [INFO] [G_Code] G0 X1.000000 Y22.000000 Z35.000000
-[2025-11-09 12:41:23] [INFO] [G_Code] el resultado fue:
-[2025-11-09 12:41:31] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 12:41:31] [INFO] [Inicio] Usuario autenticado: Nacho
-[2025-11-09 16:28:14] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:28:14] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:28:34] [INFO] [G_Code] G0 X7.000000 Y7.000000 Z7.000000
-[2025-11-09 16:28:34] [INFO] [G_Code] el resultado fue:
-=======
-[2025-11-09 15:27:48] [INFO] [G_Code] G1
-[2025-11-09 15:27:48] [INFO] [G_Code] el resultado fue:
-[2025-11-09 15:36:13] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:36:23] [INFO] [G_Code] M17
-[2025-11-09 15:36:23] [INFO] [G_Code] el resultado fue:
-[2025-11-09 15:43:08] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:43:21] [INFO] [G_Code] M17
-[2025-11-09 15:45:33] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:45:37] [INFO] [G_Code] M17
-[2025-11-09 15:56:06] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:56:14] [INFO] [G_Code] G100
-[2025-11-09 15:56:52] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:56:57] [INFO] [G_Code] M17
-[2025-11-09 15:58:54] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 15:59:23] [INFO] [G_Code] G1
-[2025-11-09 16:01:40] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:01:44] [INFO] [G_Code] M17
-[2025-11-09 16:01:44] [INFO] [G_Code] el resultado fue:
-[2025-11-09 16:02:45] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:02:49] [INFO] [G_Code] G12
-[2025-11-09 16:02:49] [INFO] [G_Code] el resultado fue:
-[2025-11-09 16:03:26] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:03:31] [INFO] [G_Code] G12
-[2025-11-09 16:03:31] [INFO] [G_Code] el resultado fue:
->>>>>>> f50d78429fda27af87c669d7c3a2730e8302e11d
-[2025-11-09 16:50:04] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:56:00] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 16:56:41] [ERROR] [G_Code] Parametros esperados para array = 2
-[2025-11-09 16:57:24] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-10-28 19:59:09] [ERROR] [MAIN] El mensaje inicial no se recibio correctamente[2025-11-09 17:12:34] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:12:38] [INFO] [G_Code] G1
+[2025-11-09 17:12:38] [INFO] [G_Code] el resultado fue:
+[2025-11-09 17:13:02] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 17:18:26] [INFO] [G_Code] G12
+[2025-11-09 17:18:26] [INFO] [G_Code] el resultado fue:
+[2025-11-09 17:18:39] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 17:19:57] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:20:11] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 17:21:34] [ERROR] [G_Code] Parametros esperados para array = 2
+[2025-11-09 17:23:41] [ERROR] [G_Code] Falta Loguearse
+[2025-11-09 17:24:01] [INFO] [Inicio] Usuario autenticado: Nico
+[2025-11-09 17:24:07] [INFO] [G_Code] G0 X2.000000 Y2.000000 Z2.000000
+[2025-11-09 17:24:07] [INFO] [G_Code] el resultado fue:
