@@ -7,6 +7,7 @@
 #include "../Servidor/Logger/Logger.hpp"
 #include "Inicio/Inicio.h"
 #include "Reporte/Reporte.h"
+#include "Help/Help.hpp"
 
 int main(int argc, char* argv[]){
 
@@ -29,6 +30,8 @@ int main(int argc, char* argv[]){
 
     Inicio Init(0, &Log, &S);
     Init.setMethod(&Repo, &g_code);
+
+    Help help(&S);
 
     // Para debugear
     //XmlRpc::setVerbosity(5);
