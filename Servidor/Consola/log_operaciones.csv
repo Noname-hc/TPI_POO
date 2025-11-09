@@ -1,0 +1,5 @@
+timestamp,user_id,user_name,rol,command,args,status,msg
+2025-11-09 12:00:17,Nacho,Nacho,operador,C_Absolutas (G90),,ERR,Login en servidor falló para usuario Nacho
+2025-11-09 12:00:53,Nacho,Nacho,operador,Bomba OFF (M2),,ERR,Login en servidor falló para usuario Nacho
+2025-11-09 12:02:05,Nico,Nicolas,admin,C_Absolutas (G90),,ERR,Login en servidor falló para usuario Nico
+2025-11-09 12:02:28,Nico,Nicolas,admin,C_Relativas (G91),,ERR,Login en servidor falló para usuario Nico

@@ -25,8 +25,12 @@ public:
     // CSV: id,nombre,clave,rol  (rol: operador|admin)
     bool load(const std::string& csv_path);  // carga usuarios desde CSV
     std::optional<User> authenticate(const std::string& id, const std::string& clave) const; // verifica clave
+    // SQLite: usa base en carpeta db (p.ej. ../db/users.db)
+    bool load_sqlite(const std::string& db_path);  // configura origen como SQLite
 private:
     std::unordered_map<std::string, User> by_id_;
+    bool use_sqlite_ = false;
+    std::string sqlite_db_path_;
 };
 
 class CsvLogger {
@@ -49,6 +53,10 @@ struct IServer {
     virtual ~IServer() = default;
     // Ejecuta el comando EXACTO del enum `comandos`
     virtual ServerResult ejecutar(comandos cmd, const std::vector<std::string>& args, const User& who) = 0;
+    // Login remoto contra metodo Inicio; devuelve msg del servidor
+    virtual ServerResult login(const std::string& user, const std::string& pass) = 0;
+    // Endpoint al que está conectado (para lanzar GUI externa)
+    virtual std::pair<std::string,int> endpoint() const = 0;
 };
 
 class GUI_Consola {
@@ -68,6 +76,7 @@ public:
     static std::vector<std::string> split_ws(const std::string& s);
     static std::string join(const std::vector<std::string>& v, const std::string& sep); //para formatear argumentos
     static bool requiere_admin(comandos c); //marca cuales comandos piden admin
+    static std::string build_gcode_literal(comandos c, const std::vector<std::string>& args);
 
 private:
 
@@ -76,6 +85,11 @@ private:
     std::optional<std::pair<comandos, std::vector<std::string>>>
     parse_command(const std::string& line) const; //parsing comando+args 
     //separa la línea en palabras, busca el comando y devuelve enum+args
+
+    // UI modo "botones" (menu numerado)
+    void mostrar_menu_botones(const User& current);
+    // Lanzar GUI Tkinter que muestra botones y llama XML-RPC
+    void lanzar_gui_botones(const User& current);
 
     // estado
     std::string usuarios_csv_ = "usuarios.csv";
@@ -86,4 +100,3 @@ private:
 };
 
 #endif // GUI_CONSOLA_H
-

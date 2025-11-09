@@ -23,7 +23,20 @@ INCLUDES  := -I. \
 # ---------- Fuentes ----------
 # Agregá aquí cualquier otro .cpp que uses (p.ej. tu Adapter real)
 SRCS := \
-	GUI_Consola.cpp
+	GUI_Consola.cpp \
+	../../Libreria_RPC/XmlRpcClient.cpp \
+	../../Libreria_RPC/XmlRpcValue.cpp \
+	../../Libreria_RPC/XmlRpcSocket.cpp \
+	../../Libreria_RPC/XmlRpcSource.cpp \
+	../../Libreria_RPC/XmlRpcDispatch.cpp \
+	../../Libreria_RPC/XmlRpcUtil.cpp
+
+# Si compilar falla por símbolos faltantes del lado servidor,
+# descomentar estas líneas (no deberían ser necesarias para el cliente):
+# SRCS += \
+# 	../../Libreria_RPC/XmlRpcServer.cpp \
+# 	../../Libreria_RPC/XmlRpcServerConnection.cpp \
+# 	../../Libreria_RPC/XmlRpcServerMethod.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -44,6 +57,14 @@ $(APP): $(OBJS)
 
 run: $(APP)
 	./$(APP) usuarios.csv log_operaciones.csv
+
+# Ejecutar contra servidor real (requiere HOST y PORT)
+run_rpc: $(APP)
+	@if [ -z "$(HOST)" ] || [ -z "$(PORT)" ]; then \
+	  echo "Uso: make run_rpc HOST=127.0.0.1 PORT=8001"; \
+	  exit 1; \
+	fi
+	./$(APP) usuarios.csv log_operaciones.csv $(HOST) $(PORT)
 
 clean:
 	$(RM) $(OBJS) $(APP)
