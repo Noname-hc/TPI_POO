@@ -85,6 +85,7 @@ class MainFrame(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
+        # --- Usuario y logout ---
         top_frame = tk.Frame(self)
         top_frame.pack(fill="x", padx=5, pady=5)
 
@@ -93,7 +94,7 @@ class MainFrame(tk.Frame):
         logout_btn = tk.Button(top_frame, text="Logout", command=self.logout)
         logout_btn.pack(side="right")
 
-        # Controls for movement
+        # --- Movimiento manual ---
         move_frame = tk.LabelFrame(self, text="Movimiento manual")
         move_frame.pack(fill="x", padx=5, pady=5)
 
@@ -112,33 +113,36 @@ class MainFrame(tk.Frame):
         self.z_entry.insert(0, "120.0")
         self.z_entry.grid(row=0, column=5, padx=3)
 
+        tk.Label(move_frame, text="G-Code:").grid(row=0, column=6)
+        self.gcode_entry = tk.Entry(move_frame, width=8)
+        self.gcode_entry.insert(0, "0")
+        self.gcode_entry.grid(row=0, column=7, padx=3)
+
         move_btn = tk.Button(move_frame, text="Move XYZ", command=self.move_xyz)
-        move_btn.grid(row=0, column=6, padx=8)
+        move_btn.grid(row=0, column=8, padx=8)
 
         home_btn = tk.Button(move_frame, text="Home", command=self.home)
-        home_btn.grid(row=0, column=7, padx=4)
+        home_btn.grid(row=0, column=9, padx=4)
 
-        extra_frame= tk.LabelFrame(self, text="Funciones adicionales")
-        extra_frame.pack(fill= "x", padx=5, pady=5)
+        # --- Funciones adicionales ---
+        extra_frame = tk.LabelFrame(self, text="Funciones adicionales")
+        extra_frame.pack(fill="x", padx=5, pady=5)
 
         tk.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=0, padx=5, pady=5)
         tk.Button(extra_frame, text="HelpMove", command=self.help_move).grid(row=0, column=1, padx=5, pady=5)
         tk.Button(extra_frame, text="HelpReporte", command=self.help_reporte).grid(row=0, column=2, padx=5, pady=5)
-        
-        # Status and commands
+
+        # --- Estado y comandos ---
         info_frame = tk.Frame(self)
         info_frame.pack(fill="both", expand=True, padx=5, pady=5)
 
         left = tk.Frame(info_frame)
         left.pack(side="left", fill="both", expand=True)
 
-        status_btn = tk.Button(left, text="Get Status", command=self.get_status)
-        status_btn.pack(fill="x", pady=2)
+        tk.Button(left, text="Get Status", command=self.get_status).pack(fill="x", pady=2)
+        tk.Button(left, text="List Commands", command=self.list_commands).pack(fill="x", pady=2)
 
-        list_cmd_btn = tk.Button(left, text="List Commands", command=self.list_commands)
-        list_cmd_btn.pack(fill="x", pady=2)
-
-        # Log area
+        # --- Área de log ---
         right = tk.Frame(info_frame)
         right.pack(side="right", fill="both", expand=True)
 
@@ -153,21 +157,32 @@ class MainFrame(tk.Frame):
         self.log.see("end")
         self.log.configure(state="disabled")
 
-    # Wrappers que ejecutan en hilo
+    # --- Wrappers que ejecutan en hilo ---
     def move_xyz(self):
         x = self.x_entry.get().strip()
         y = self.y_entry.get().strip()
         z = self.z_entry.get().strip()
+        g_code = self.gcode_entry.get().strip()
+
+        # Validación
         try:
             float(x); float(y); float(z)
         except ValueError:
             messagebox.showwarning("Valores inválidos", "X, Y y Z deben ser numéricos.")
             return
 
+        if not g_code.isdigit():
+            messagebox.showwarning("Valor inválido", "El G-Code debe ser un número entero.")
+            return
+
+        posicion = f"{x},{y},{z}"
+
         def do_move():
             try:
-                res = self.rpc.move_xyz(x, y, z)
-                self.master.after(0, lambda: self.log_msg(f"move_xyz({x},{y},{z}) -> {res}"))
+                print(f"{g_code}, [{posicion}]")
+                res = self.rpc.move_xyz(g_code, posicion)
+                
+                self.master.after(0, lambda: self.log_msg(f"move_xyz(G{g_code}, {x},{y},{z}) -> {res}"))
             except Exception as e:
                 self.master.after(0, lambda: self.log_msg(f"ERROR move_xyz: {e}"))
 
@@ -181,7 +196,7 @@ class MainFrame(tk.Frame):
             except Exception as e:
                 self.master.after(0, lambda: self.log_msg(f"ERROR home: {e}"))
         threading.Thread(target=do_home, daemon=True).start()
-    
+
     def reporte(self):
         def t():
             try:
@@ -202,7 +217,7 @@ class MainFrame(tk.Frame):
 
     def help_reporte(self):
         messagebox.showinfo("HelpReporte", "Esta sección se completará más adelante.")
-           
+
     def get_status(self):
         def do_status():
             try:
@@ -222,6 +237,5 @@ class MainFrame(tk.Frame):
         threading.Thread(target=do_list, daemon=True).start()
 
     def logout(self):
-        # por simplicidad, no informamos al servidor; solo volvemos a login
         if messagebox.askyesno("Logout", "Cerrar sesión y volver al login?"):
             self.on_logout()
