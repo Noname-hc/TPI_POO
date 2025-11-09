@@ -74,7 +74,29 @@ class RobotRPCClient:
         return self.call("list_commands")
 
     def help_move(self):
-        return self.call("help_move")
-    
+        comandos = {
+            "Movimiento_Lineal": 0,
+            "Rampa": 4,
+            "Homing": 28,
+            "C_Absolutas": 90,
+            "C_Relativas": 91,
+            "Set_0": 92,
+            "Bomba_ON": 10001,
+            "Bomba_OFF": 10002,
+            "Griper_ON": 10003,
+            "Griper_OFF": 10005,
+            "Laser_ON": 10006,
+            "Laser_OFF": 10007,
+            "Motor_ON": 100017,
+            "Motor_OFF": 100018,
+            "Ventiladores_ON": 1000106,
+            "Ventiladores_OFF": 1000107,
+            "Reporte_General": 1000114,
+            "Reporte_finales": 1000119
+        }
+        for nombre, codigo in comandos.items():
+            texto += f"{nombre:20s} = {codigo}\n"
+        return texto
+        
     def reporte(self):
         return self.call("reporte")
