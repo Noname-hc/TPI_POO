@@ -68,9 +68,10 @@ class RobotRPCClient:
 
     def get_status(self):
         return self.call("get_status")
-
-    def move_xyz(self, x, y, z):
-        return self.call("move_xyz", float(x), float(y), float(z))
+    #
+    #MAL error1
+    def move_xyz(self, g_code, posicion):
+        return self.call("move_xyz", g_code, posicion)
         
     def home(self):
         return self.call("home")
@@ -105,8 +106,8 @@ class RobotRPCClient:
             texto += f"{nombre:20s} = {codigo}\n"
         return texto
         
-    def reporte(self):
-        return self.call("reporte")
+    def reporte(self, nivel, dominio):
+        return self.call("reporte", nivel, dominio)
 
 
     def help(self, tipo):

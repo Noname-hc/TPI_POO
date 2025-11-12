@@ -110,5 +110,8 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
     } else {
         result = std::string("Bienvenido cliente");
     }
-    try{ if(Log) Log->log(LogLevel::INFO, LogDomain::Inicio, std::string("Usuario autenticado: ") + usuario);}catch(...){ }
+
+    std::cout << "Logger: " << Log << std::endl; 
+
+    try{ if(Log) Log->log(LogLevel::INFO, LogDomain::Inicio, std::string("Usuario autenticadoo: ") + usuario);}catch(...){ }
 }

@@ -58,7 +58,11 @@
     "streambuf": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "csetjmp": "cpp"
+    "csetjmp": "cpp",
+    "set": "cpp",
+    "semaphore": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

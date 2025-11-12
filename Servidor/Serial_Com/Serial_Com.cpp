@@ -155,7 +155,9 @@
         }
 
         std::string msgOut = Mensaje;
-        if (msgOut.empty() || msgOut.back() != '\n') msgOut += "\n";
+        
+        if (msgOut.size() < 2 || msgOut.substr(msgOut.size() - 2) != "\r\n")
+        msgOut += "\r\n";
 
         std::cout << "[Transmision] Comando enviado: " << msgOut << std::endl;
         int n = write(fd, msgOut.c_str(), msgOut.size());

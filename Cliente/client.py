@@ -10,8 +10,8 @@ log.basicConfig(filename="logs/cliente.log", level=log.INFO, format='[%(asctime)
 class RobotClientApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Client RPC - Robot Controller")
-        self.geometry("720x480")
+        self.title("Cliente - Controlador de Robot")
+        self.geometry("300x390")
         self.resizable(True, True)
         # cliente RPC central
         self.rpc_client = RobotRPCClient()

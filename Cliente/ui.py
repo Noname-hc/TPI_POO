@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox, scrolledtext
 import threading
 import time
+from PIL import Image, ImageTk
 
 class LoginFrame(tk.Frame):
     def __init__(self, master, rpc_client, on_success, *args, **kwargs):
@@ -26,16 +27,25 @@ class LoginFrame(tk.Frame):
 
         tk.Label(self, text="Usuario:").grid(row=row, column=0, sticky="e")
         self.user_entry = tk.Entry(self)
+        self.user_entry.insert(0, "Nico")
         self.user_entry.grid(row=row, column=1, padx=5, pady=3)
         row += 1
 
         tk.Label(self, text="Contraseña:").grid(row=row, column=0, sticky="e")
         self.pass_entry = tk.Entry(self, show="*")
+        self.pass_entry.insert(0, "777")
         self.pass_entry.grid(row=row, column=1, padx=5, pady=3)
         row += 1
 
         self.btn_connect = tk.Button(self, text="Conectar y Login", command=self.attempt_login)
         self.btn_connect.grid(row=row, column=0, columnspan=2, pady=8)
+        row += 1
+
+        Logo = Image.open("Logo/image.png")
+        Logo = ImageTk.PhotoImage(Logo)
+        self.logo_label = tk.Label(self, image=Logo)
+        self.logo_label.image = Logo
+        self.logo_label.grid(row=row, columnspan=2, pady=10)
 
     def attempt_login(self):
         ip = self.ip_entry.get().strip()
@@ -57,7 +67,8 @@ class LoginFrame(tk.Frame):
         def do_login():
             try:
                 res = self.rpc.login(user, pwd)
-                # Se espera que el servidor devuelva True/False o "OK"/"ERROR"
+                
+                #print(f"Respuesta-Inicio: {res}")
                 ok = False
                 
                 if res in ("Bienvenido cliente", "Bienvenido administrador"):
@@ -125,30 +136,31 @@ class MainFrame(tk.Frame):
         home_btn.grid(row=0, column=9, padx=4)
 
         # --- Funciones adicionales ---
-        extra_frame = tk.LabelFrame(self, text="Funciones adicionales")
+        extra_frame = tk.LabelFrame(self, text="Reporte")
         extra_frame.pack(fill="x", padx=5, pady=5)
 
-        tk.Button(extra_frame, text="Reporte", command=self.reporte).grid(row=0, column=0, padx=5, pady=5)
-        tk.Button(extra_frame, text="HelpMove", command=self.help_move).grid(row=0, column=1, padx=5, pady=5)
-        tk.Button(extra_frame, text="HelpReporte", command=self.help_reporte).grid(row=0, column=2, padx=5, pady=5)
+        tk.Button(extra_frame, text="Filtrar", command=self.reporte_filtrado).grid(row=0, column=9, padx=5, pady=5)
+        niveles = ["INFO", "WARNING", "ERROR", "DEBUG"]
+        dominios = ["main", "G_Code", "Reporte", "Inicio"]
 
-        # --- Estado y comandos ---
+        tk.Label(extra_frame, text="Nivel:").grid(row=0, column=1, padx=5, pady=5)
+        self.nivel_var = tk.StringVar(value=niveles[0])
+        tk.OptionMenu(extra_frame, self.nivel_var, *niveles).grid(row=0, column=3, padx=5, pady=5)
+
+        tk.Label(extra_frame, text="Dominio").grid(row=0, column=5, padx=5, pady=5)
+        self.dominio_var = tk.StringVar(value=dominios[0])
+        tk.OptionMenu(extra_frame, self.dominio_var, *dominios).grid(row=0, column=7, padx=5, pady=5)
+
+                # --- Estado y comandos ---
         info_frame = tk.Frame(self)
         info_frame.pack(fill="both", expand=True, padx=5, pady=5)
 
-        left = tk.Frame(info_frame)
-        left.pack(side="left", fill="both", expand=True)
-
-        tk.Button(left, text="Get Status", command=self.get_status).pack(fill="x", pady=2)
-        tk.Button(left, text="List Commands", command=self.list_commands).pack(fill="x", pady=2)
-
-        # --- Área de log ---
-        right = tk.Frame(info_frame)
-        right.pack(side="right", fill="both", expand=True)
-
-        tk.Label(right, text="Log / Respuestas:").pack(anchor="w")
-        self.log = scrolledtext.ScrolledText(right, height=12, state="disabled")
+        # --- Área de log ocupando todo ---
+        tk.Label(info_frame, text="Log / Respuestas:").pack(anchor="w")
+        self.log = scrolledtext.ScrolledText(info_frame, height=12, state="disabled")
         self.log.pack(fill="both", expand=True)
+
+
 
         #boton help
         self.frame_botones = tk.Frame(self)
@@ -160,6 +172,8 @@ class MainFrame(tk.Frame):
         self.btn_help_gcode = tk.Button(self.frame_botones, text="Help G_Code", command=self.help_gcode)
         self.btn_help_reporte = tk.Button(self.frame_botones, text="Help Reporte", command=self.help_reporte)
         self.help_visible = False 
+        
+
 
     def log_msg(self, msg):
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -191,11 +205,15 @@ class MainFrame(tk.Frame):
         def do_move():
             try:
                 print(f"{g_code}, [{posicion}]")
-                res = self.rpc.move_xyz(g_code, posicion)
-                
+                res = self.rpc.move_xyz(int(g_code), posicion)#cambiamos la firma, por tanto en wrapper no andaba 
+                print("Respuesta de RPC:", res)
                 self.master.after(0, lambda: self.log_msg(f"move_xyz(G{g_code}, {x},{y},{z}) -> {res}"))
             except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR move_xyz: {e}"))
+                msg = f"ERROR move_xyz: {e}"
+                print(msg)  # <-- directo en consola
+                self.master.after(0, lambda: self.log_msg(msg))
+
+
 
         threading.Thread(target=do_move, daemon=True).start()
 
@@ -208,14 +226,42 @@ class MainFrame(tk.Frame):
                 self.master.after(0, lambda: self.log_msg(f"ERROR home: {e}"))
         threading.Thread(target=do_home, daemon=True).start()
 
-    def reporte(self):
+    def reporte_filtrado(self):
         def t():
             try:
-                res = self.rpc.reporte()
-                self.master.after(0, lambda: self.log_msg(f"Reporte -> {res}"))
+                # Diccionarios tipo switch
+                niveles = {
+                    "INFO": 0,
+                    "WARNING": 1,
+                    "ERROR": 2,
+                    "DEBUG": 3
+                }
+
+                dominios = {
+                    "main": 0,
+                    "G_Code": 1,
+                    "Reporte": 2,
+                    "Inicio": 3
+                }
+
+                # Obtiene los valores seleccionados en los OptionMenu
+                nivel_str = self.nivel_var.get()
+                dominio_str = self.dominio_var.get()
+
+                # Traduce a número según diccionario (default 0 si no se encuentra)
+                nivel = niveles.get(nivel_str, 0)
+                dominio = dominios.get(dominio_str, 0)
+
+                # Llamada RPC
+                res = self.rpc.reporte(nivel, dominio)
+                self.master.after(0, lambda: self.log_msg(f"Reporte filtrado ({nivel_str}, {dominio_str}) -> {res}"))
+
             except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR reporte: {e}"))
+                msg = f"ERROR reporte_filtrado: {e}"
+                self.master.after(0, lambda: self.log_msg(msg))
         threading.Thread(target=t, daemon=True).start()
+
+        
 
     def help_move(self):
         def t():

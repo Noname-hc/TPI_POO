@@ -1,106 +1,222 @@
-[2025-11-09 17:57:46] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:02:05] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:13:57] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:16:47] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:23:27] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:24:54] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:28:45] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 18:29:37] [INFO] [Inicio] Usuario autenticado: Nico
-[2025-11-09 19:25:02],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:30:49],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:31:18],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:15],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:37],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:39],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:39],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:40],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:41],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:47],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:48],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:48],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:32:49],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 19:38:55],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:08:00],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:08:57],[INFO],[G_Code],G28
-[2025-11-09 20:08:57],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:09:44],[ERROR],[G_Code],Falta Loguearse
-[2025-11-09 20:09:53],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:10:01],[INFO],[G_Code],M17
-[2025-11-09 20:10:01],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:11:51],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:12:01],[INFO],[G_Code],M17
-[2025-11-09 20:12:02],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:13:55],[ERROR],[G_Code],Falta Loguearse
-[2025-11-09 20:14:01],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:14:10],[INFO],[G_Code],M17
-[2025-11-09 20:14:10],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:29:45],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:29:54],[INFO],[G_Code],M17
-[2025-11-09 20:29:56],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:29:56],[DEBUG],[G_Code],Transmitiendo:M17
-[2025-11-09 20:29:59],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:30:02],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:35:35],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:36:41],[INFO],[G_Code],G28
-[2025-11-09 20:36:43],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:36:43],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:36:46],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:36:49],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:38:59],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:39:02],[INFO],[G_Code],G28
-[2025-11-09 20:39:04],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:39:04],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:39:07],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:39:10],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:40:08],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:40:13],[INFO],[G_Code],G28
-[2025-11-09 20:40:13],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:40:13],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:40:13],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:40:13],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:40:31],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:40:48],[INFO],[G_Code],G28
-[2025-11-09 20:40:50],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:40:50],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:40:53],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:40:56],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:41:03],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:41:07],[INFO],[G_Code],G28
-[2025-11-09 20:41:09],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:41:09],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:41:12],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:41:15],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:45:34],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:45:38],[INFO],[G_Code],G28
-[2025-11-09 20:45:40],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:45:43],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:45:46],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:45:49],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:48:17],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:48:23],[INFO],[G_Code],G28
-[2025-11-09 20:48:25],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:48:29],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:48:29],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:48:32],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:48:35],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:48:50],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:49:36],[INFO],[G_Code],G28
-[2025-11-09 20:49:38],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:49:41],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:49:41],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:49:44],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:49:47],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:55:49],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:55:55],[INFO],[G_Code],G28
-[2025-11-09 20:55:57],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:56:00],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:56:00],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:56:03],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:56:06],[INFO],[G_Code],el resultado fue:
-[2025-11-09 20:56:29],[INFO],[Inicio],Usuario autenticado: Nico
-[2025-11-09 20:56:52],[INFO],[G_Code],G28
-[2025-11-09 20:56:54],[DEBUG],[G_Code],iniciando comunicacion
-[2025-11-09 20:56:57],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:56:57],[DEBUG],[G_Code],Transmitiendo:G28
-[2025-11-09 20:57:00],[DEBUG],[G_Code],Recibiendo en bruto: 
-[2025-11-09 20:57:03],[INFO],[G_Code],el resultado fue:
+[2025-11-11 23:33:28],[ERROR],[G_Code],Falta Loguearse
+[2025-11-11 23:33:41],[INFO],[Inicio],Usuario autenticado: Nico
+[2025-11-11 23:33:47],[INFO],[G_Code],G28
+[2025-11-11 23:33:49],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-11 23:33:54],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-11 23:33:54],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-11 23:33:57],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-11 23:33:57],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-11 23:34:17],[INFO],[Inicio],Usuario autenticado: Nico
+[2025-11-11 23:34:22],[INFO],[G_Code],M17
+[2025-11-11 23:34:24],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-11 23:34:29],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-11 23:34:29],[DEBUG],[G_Code],Transmitiendo:M17
+[2025-11-11 23:34:29],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS ENABLED
+[2025-11-11 23:34:29],[INFO],[G_Code],el resultado fue:OK
+[2025-11-11 23:34:58],[INFO],[Inicio],Usuario autenticado: Nico
+[2025-11-11 23:35:05],[INFO],[G_Code],M17
+[2025-11-11 23:35:07],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-11 23:35:12],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-11 23:35:12],[DEBUG],[G_Code],Transmitiendo:M17
+[2025-11-11 23:35:12],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS ENABLED
+[2025-11-11 23:35:12],[INFO],[G_Code],el resultado fue:OK
+[2025-11-11 23:35:55],[INFO],[Inicio],Usuario autenticado: Nico
+[2025-11-11 23:41:31],[INFO],[Inicio],Usuario autenticado: Nico
+[2025-11-11 23:43:34],[INFO],[Inicio],Usuario autenticado: Nico
+[2025-11-12 00:03:33],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:09:58],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:10:28],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:13:28],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:19:53],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:19:58],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:19:58],[ERROR],[G_Code],parametros debe contener entero, string
+[2025-11-12 00:20:20],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:20:20],[ERROR],[G_Code],parametros debe contener entero, string
+[2025-11-12 00:25:37],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:25:42],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:25:42],[INFO],[G_Code],G28
+[2025-11-12 00:25:44],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:25:49],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:25:49],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:25:52],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:25:52],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:27:08],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:27:08],[INFO],[G_Code],M17
+[2025-11-12 00:27:10],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:27:15],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:27:15],[DEBUG],[G_Code],Transmitiendo:M17
+[2025-11-12 00:27:15],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS ENABLED
+[2025-11-12 00:27:15],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:27:19],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:27:19],[INFO],[G_Code],M17
+[2025-11-12 00:27:21],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:27:26],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:27:26],[DEBUG],[G_Code],Transmitiendo:M17
+[2025-11-12 00:27:26],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS ENABLED
+[2025-11-12 00:27:26],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:27:27],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:27:27],[INFO],[G_Code],M17
+[2025-11-12 00:27:29],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:27:34],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:27:34],[DEBUG],[G_Code],Transmitiendo:M17
+[2025-11-12 00:27:35],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS ENABLED
+[2025-11-12 00:27:35],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:29:30],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:29:30],[INFO],[G_Code],G0 X10.000000 Y20.000000 Z30.000000
+[2025-11-12 00:29:33],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:29:38],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:29:38],[DEBUG],[G_Code],Transmitiendo:G0 X10.000000 Y20.000000 Z30.000000
+[2025-11-12 00:29:38],[DEBUG],[G_Code],Recibiendo en bruto: INFO: 
+[2025-11-12 00:29:38],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:30:06],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:30:06],[INFO],[G_Code],G28
+[2025-11-12 00:30:08],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:30:13],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:30:13],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:30:16],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:30:16],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:34:15],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:34:15],[INFO],[G_Code],G28
+[2025-11-12 00:34:17],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:34:22],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:34:22],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:34:25],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:34:25],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:34:28],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:34:28],[INFO],[G_Code],G28
+[2025-11-12 00:34:30],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:34:35],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:34:35],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:34:38],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:34:38],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:34:38],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:34:38],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:34:38],[INFO],[G_Code],G28
+[2025-11-12 00:34:40],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:34:45],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:34:45],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:34:48],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:34:48],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:35:25],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:35:25],[INFO],[G_Code],G28
+[2025-11-12 00:35:27],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:35:32],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:35:32],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:35:35],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:35:35],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:36:11],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:36:11],[INFO],[G_Code],G28
+[2025-11-12 00:36:13],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:36:18],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:36:18],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:36:21],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:36:21],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:36:25],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:36:25],[INFO],[G_Code],M17
+[2025-11-12 00:36:27],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:36:32],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:36:32],[DEBUG],[G_Code],Transmitiendo:M17
+[2025-11-12 00:36:32],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS ENABLED
+[2025-11-12 00:36:32],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:36:53],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:36:53],[INFO],[G_Code],M18
+[2025-11-12 00:36:55],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:37:00],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:37:00],[DEBUG],[G_Code],Transmitiendo:M18
+[2025-11-12 00:37:00],[DEBUG],[G_Code],Recibiendo en bruto: INFO: MOTORS DISABLED
+[2025-11-12 00:37:00],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:37:21],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:37:21],[INFO],[G_Code],M114
+[2025-11-12 00:37:23],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:37:28],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:37:28],[DEBUG],[G_Code],Transmitiendo:M114
+[2025-11-12 00:37:28],[DEBUG],[G_Code],Recibiendo en bruto: INFO: ABSOLUTE MODE
+[2025-11-12 00:37:28],[INFO],[G_Code],el resultado fue:INFO: 
+[2025-11-12 00:37:58],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:37:58],[INFO],[G_Code],M114
+[2025-11-12 00:38:00],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:38:05],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:38:05],[DEBUG],[G_Code],Transmitiendo:M114
+[2025-11-12 00:38:05],[DEBUG],[G_Code],Recibiendo en bruto: INFO: ABSOLUTE MODE
+[2025-11-12 00:38:05],[INFO],[G_Code],el resultado fue:INFO: 
+[2025-11-12 00:38:19],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:38:19],[INFO],[G_Code],G115
+[2025-11-12 00:38:21],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:38:26],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:38:26],[DEBUG],[G_Code],Transmitiendo:G115
+[2025-11-12 00:38:26],[DEBUG],[G_Code],Recibiendo en bruto: ERROR: COMMAND NOT RECOGNIZED
+[2025-11-12 00:38:26],[INFO],[G_Code],el resultado fue:OK
+[2025-11-12 00:40:00],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:02],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:02],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:03],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:03],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:04],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:04],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:10],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:12],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:12],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:12],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:14],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:15],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:15],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:16],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:16],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:16],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:16],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 00:40:28],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:40:33],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:40:33],[INFO],[G_Code],G28
+[2025-11-12 00:40:35],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:40:40],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:40:40],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:40:43],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:40:43],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:40:45],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:40:45],[INFO],[G_Code],G28
+[2025-11-12 00:40:47],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 00:40:52],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:40:52],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 00:40:55],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 00:40:55],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 00:55:58],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:57:15],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:57:59],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 00:59:02],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:00:05],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:03:22],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 01:04:51],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:05:13],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:06:40],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:06:41],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:06:41],[ERROR],[Reporte],parametros deben ser enteros [domain, level]
+[2025-11-12 01:07:35],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:13:13],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:13:15],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:13:24],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:16:04],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:16:25],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:17:34],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 01:17:37],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-12 01:17:51],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:17:54],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:18:04],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:18:12],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:20:28],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:21:17],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:22:24],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:22:25],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:23:30],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:25:08],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:25:16],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:25:20],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:25:20],[INFO],[G_Code],G28
+[2025-11-12 01:25:22],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-12 01:25:27],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 01:25:27],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-12 01:25:30],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-12 01:25:30],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-12 01:29:13],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:31:52],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:42:08],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-12 01:43:24],[INFO],[Inicio],Usuario autenticadoo: Nico
