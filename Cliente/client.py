@@ -1,11 +1,19 @@
 # client.py
 
+import os
 import tkinter as tk
 from ui import *
 from RPCwrapper import *
 import logging as log
 
-log.basicConfig(filename="logs/cliente.log", level=log.INFO, format='[%(asctime)s]-[%(levelname)s]-[%(name)s]-%(message)s')
+# Configurar logging siempre relativo a este archivo, sin depender del CWD
+_BASE = os.path.dirname(os.path.abspath(__file__))
+_LOG_DIR = os.path.join(_BASE, "logs")
+os.makedirs(_LOG_DIR, exist_ok=True)
+_LOG_PATH = os.path.join(_LOG_DIR, "cliente.log")
+
+log.basicConfig(filename=_LOG_PATH, level=log.INFO,
+                format='[%(asctime)s]-[%(levelname)s]-[%(name)s]-%(message)s')
 
 class RobotClientApp(tk.Tk):
     def __init__(self):

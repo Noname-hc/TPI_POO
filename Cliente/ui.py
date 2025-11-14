@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox, scrolledtext, simpledialog
+import os
 import threading
 import time
 from PIL import Image, ImageTk
@@ -41,11 +42,16 @@ class LoginFrame(tk.Frame):
         self.btn_connect.grid(row=row, column=0, columnspan=2, pady=8)
         row += 1
 
-        Logo = Image.open("Logo/image.png")
-        Logo = ImageTk.PhotoImage(Logo)
-        self.logo_label = tk.Label(self, image=Logo)
-        self.logo_label.image = Logo
-        self.logo_label.grid(row=row, columnspan=2, pady=10)
+        # Cargar logo con ruta absoluta; si falla, seguimos sin imagen
+        try:
+            logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo", "image.png")
+            _img = Image.open(logo_path)
+            _img = ImageTk.PhotoImage(_img)
+            self.logo_label = tk.Label(self, image=_img)
+            self.logo_label.image = _img
+            self.logo_label.grid(row=row, columnspan=2, pady=10)
+        except Exception:
+            pass
 
     def attempt_login(self):
         ip = self.ip_entry.get().strip()
@@ -131,9 +137,6 @@ class MainFrame(tk.Frame):
 
         move_btn = tk.Button(move_frame, text="Send_G_code", command=self.move_xyz)
         move_btn.grid(row=0, column=8, padx=8)
-
-        home_btn = tk.Button(move_frame, text="Home", command=self.home)
-        home_btn.grid(row=0, column=9, padx=4)
 
         # --- Tareas ---
         tarea_frame = tk.LabelFrame(self, text="Tareas")
@@ -268,15 +271,7 @@ class MainFrame(tk.Frame):
 
 
         threading.Thread(target=do_move, daemon=True).start()
-
-    def home(self):
-        def do_home():
-            try:
-                res = self.rpc.home()
-                self.master.after(0, lambda: self.log_msg(f"home() -> {res}"))
-            except Exception as e:
-                self.master.after(0, lambda: self.log_msg(f"ERROR home: {e}"))
-        threading.Thread(target=do_home, daemon=True).start()
+    
 
     # --- Ejecutar tarea (pide número) ---
     def run_task_dialog(self):
