@@ -9,6 +9,7 @@
 #include "Inicio/Inicio.h"
 #include "Reporte/Reporte.h"
 #include "Help/Help.hpp"
+#include "Tarea.h"
 
 
 
@@ -30,9 +31,10 @@ int main(int argc, char* argv[]){
     g_code.openFile();
 
     Reporte Repo(&Log,0,&S);
+    Tarea tareas(&Log, 0, &S, "tareas");
 
     Inicio Init(0, &Log, &S);
-    Init.setMethod(&Repo, &g_code);
+    Init.setMethod(&Repo, &g_code, &tareas);
 
     Help help(&S);
 

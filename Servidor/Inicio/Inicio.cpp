@@ -10,6 +10,7 @@
 #include "../../Libreria_RPC/XmlRpc.h"
 #include "../G_Code/G_code.h"
 #include "../Reporte/Reporte.h"
+#include "../Tarea.h"
 #include "../Logger/Logger.hpp"
 
 using namespace XmlRpc;
@@ -23,9 +24,10 @@ Inicio::~Inicio(){
 
 }
 
-void Inicio::setMethod(Reporte *Repo, G_Code *gcode){
+void Inicio::setMethod(Reporte *Repo, G_Code *gcode, Tarea* tarea){
     this->Repo = Repo;
     this->gcode = gcode;
+    this->tarea = tarea;
 }
 
 void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
@@ -95,6 +97,7 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
         this->Nivel_de_Acceso = 0;
         if(this->Repo) this->Repo->setLvL(0);
         if(this->gcode) this->gcode->setLvL(0);
+        if(this->tarea) this->tarea->setLvL(0);
         result = std::string("Credenciales invalidas");
         try{ if(Log) Log->log(LogLevel::ERROR, LogDomain::Inicio, "Intento de logueo fallido para usuario: " + usuario);}catch(...){ }
         return;
@@ -104,6 +107,7 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
     this->Nivel_de_Acceso = nivel;
     if(this->Repo) this->Repo->setLvL((nivel==static_cast<int>(UserLvL::admin))?2:1);
     if(this->gcode) this->gcode->setLvL((nivel==static_cast<int>(UserLvL::admin))?2:1);
+    if(this->tarea) this->tarea->setLvL((nivel==static_cast<int>(UserLvL::admin))?2:1);
 
     if(nivel == static_cast<int>(UserLvL::admin)){
         result = std::string("Bienvenido administrador");

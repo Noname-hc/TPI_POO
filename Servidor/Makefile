@@ -5,6 +5,7 @@ includes += ../Servidor/G_Code/G_code.cpp
 includes += ../Servidor/Logger/Logger.cpp 
 includes += ../Servidor/Reporte/Reporte.cpp
 includes += ../Servidor/Serial_Com/Serial_Com.cpp
+includes += ../Servidor/Tarea.cpp
 
 flag_version = -std=c++17
 

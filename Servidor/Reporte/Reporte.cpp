@@ -102,28 +102,13 @@ void Reporte::setLvL(const int Nivel_de_Acceso){
 void Reporte::execute(XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result) {
     using XmlRpc::XmlRpcValue;
 
+    
     // Control de acceso
-    if (Nivel_de_Acceso == 0) {
-        try { Log->log(LogLevel::ERROR, LogDomain::Reporte, "Falta logearse"); }
-        catch(...) {}
-        throw XmlRpc::XmlRpcException("Falta logearse");
-    }
     if (Nivel_de_Acceso == 1) {
         // usuario sin permiso
         throw XmlRpc::XmlRpcException("No autorizado");
-    } else if(Nivel_de_Acceso == 2){
-        // Nivel_de_Acceso >= 2 -> permitido
-
-    }else{
-        try{
-            this->Log->log(LogLevel::ERROR, LogDomain::G_Code, "Error al logearse");       
-
-        }catch(std::runtime_error &e){
-            std::cout << e.what() << std::endl;
-        }
-        throw XmlRpc::XmlRpcException("Error al logearse");
-    }
-    this->Nivel_de_Acceso = 0; // Reseteamos el nivel de acceso
+    } // Nivel 0 (sin login) y 2 (admin) -> permitido para evitar pérdida de estado entre llamadas
+    // Mantener el nivel de acceso para permitir múltiples consultas consecutivas
 
     // Si params no es válido -> devolver todo el log
     if (!params.valid()) {

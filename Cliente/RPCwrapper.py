@@ -15,7 +15,8 @@ class RobotRPCClient:
             "list_commands": "list_commands",  # rpc.list_commands()
             "help_move": "G_Code_help",   #lista de comandos
             "reporte": "Reporte",  #Metodo remoto help
-            "Help": "Help"
+            "Help": "Help",
+            "tarea": "Tarea"
                 }
 
     def _ensure_proxy(self):
@@ -112,6 +113,18 @@ class RobotRPCClient:
 
     def help(self, tipo):
         return self.server.Help(tipo)
+
+    # --- Tarea RPC wrapper ---
+    def tarea(self, op_and_args):
+        """
+        Llama al método remoto Tarea. Ejemplos:
+          rpc.tarea(["add", nombre, linea])
+          rpc.tarea(["run", nombre])
+          rpc.tarea(["show", nombre])
+          rpc.tarea(["list"]) 
+          rpc.tarea(["clear", nombre])
+        """
+        return self.call("tarea", op_and_args)
 
     def _revalidar(self):
         if not self.username or not self.password:

@@ -220,3 +220,72 @@
 [2025-11-12 01:31:52],[INFO],[Inicio],Usuario autenticadoo: Nico
 [2025-11-12 01:42:08],[INFO],[Inicio],Usuario autenticadoo: Nico
 [2025-11-12 01:43:24],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:03:58],[ERROR],[Inicio],Intento de logueo fallido para usuario: Nombre cualquiera
+[2025-11-14 11:03:58],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 11:03:58],[INFO],[G_Code],G90
+[2025-11-14 11:03:58],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:04:00],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:04:00],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 11:04:00],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:04:00],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:04:00],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:04:00],[ERROR],[Reporte],Falta logearse
+[2025-11-14 11:04:20],[ERROR],[Inicio],Intento de logueo fallido para usuario: Nombre cualquiera
+[2025-11-14 11:04:20],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 11:04:20],[INFO],[G_Code],G90
+[2025-11-14 11:04:20],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:04:22],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:04:22],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 11:04:22],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:04:22],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:04:22],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:04:22],[ERROR],[Reporte],Falta logearse
+[2025-11-14 11:05:29],[ERROR],[Inicio],Intento de logueo fallido para usuario: Nombre cualquiera
+[2025-11-14 11:05:29],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 11:05:29],[INFO],[G_Code],G90
+[2025-11-14 11:05:29],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:05:31],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:05:31],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 11:05:31],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:05:31],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:05:31],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:05:31],[ERROR],[Reporte],Falta logearse
+[2025-11-14 11:05:55],[ERROR],[Inicio],Intento de logueo fallido para usuario: Nombre cualquiera
+[2025-11-14 11:05:55],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 11:05:55],[INFO],[G_Code],G90
+[2025-11-14 11:05:55],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:05:57],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:05:57],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 11:05:57],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:05:57],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:05:57],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:05:57],[ERROR],[Reporte],Falta logearse
+[2025-11-14 11:07:59],[ERROR],[Inicio],Intento de logueo fallido para usuario: Nombre cualquiera
+[2025-11-14 11:07:59],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 11:07:59],[INFO],[G_Code],G90
+[2025-11-14 11:07:59],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:08:01],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:08:01],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 11:08:01],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:08:01],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:08:01],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:08:27],[ERROR],[Inicio],Intento de logueo fallido para usuario: Nombre cualquiera
+[2025-11-14 11:08:27],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 11:08:27],[INFO],[G_Code],G90
+[2025-11-14 11:08:27],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:08:29],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:08:29],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 11:08:29],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:08:29],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:08:29],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:35:48],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:36:08],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:36:18],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:36:27],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:37:43],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:37:43],[INFO],[G_Code],G1
+[2025-11-14 11:37:43],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:37:45],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:37:45],[DEBUG],[G_Code],Transmitiendo:G1
+[2025-11-14 11:37:45],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:37:45],[INFO],[G_Code],el resultado fue:

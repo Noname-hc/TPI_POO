@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox, scrolledtext
+from tkinter import messagebox, scrolledtext, simpledialog
 import threading
 import time
 from PIL import Image, ImageTk
@@ -135,6 +135,33 @@ class MainFrame(tk.Frame):
         home_btn = tk.Button(move_frame, text="Home", command=self.home)
         home_btn.grid(row=0, column=9, padx=4)
 
+        # --- Tareas ---
+        tarea_frame = tk.LabelFrame(self, text="Tareas")
+        tarea_frame.pack(fill="x", padx=5, pady=5)
+
+        self.task_mode_var = tk.BooleanVar(value=False)
+        self.task_number_var = tk.StringVar(value="1")
+        self.task_prefix_var = tk.StringVar(value="tarea ")
+
+        self.chk_task_mode = tk.Checkbutton(
+            tarea_frame, text="Modo guardar en tarea", variable=self.task_mode_var,
+            command=lambda: self.log_msg(
+                f"Modo tarea: {'ON' if self.task_mode_var.get() else 'OFF'} (nro={self.task_number_var.get()})"
+            )
+        )
+        self.chk_task_mode.grid(row=0, column=0, sticky="w", padx=3)
+
+        tk.Label(tarea_frame, text="Nro:").grid(row=0, column=1, sticky="e")
+        self.task_number_entry = tk.Entry(tarea_frame, width=6, textvariable=self.task_number_var)
+        self.task_number_entry.grid(row=0, column=2, padx=3)
+
+        tk.Label(tarea_frame, text="Nombre base:").grid(row=0, column=3, sticky="e")
+        self.task_prefix_entry = tk.Entry(tarea_frame, width=10, textvariable=self.task_prefix_var)
+        self.task_prefix_entry.grid(row=0, column=4, padx=3)
+
+        self.btn_run_task = tk.Button(tarea_frame, text="Ejecutar tarea", command=self.run_task_dialog)
+        self.btn_run_task.grid(row=0, column=5, padx=6)
+
         # --- Funciones adicionales ---
         extra_frame = tk.LabelFrame(self, text="Reporte")
         extra_frame.pack(fill="x", padx=5, pady=5)
@@ -204,13 +231,38 @@ class MainFrame(tk.Frame):
 
         def do_move():
             try:
+                # Si está activo el modo tarea, agregamos la línea a la tarea y no ejecutamos G_Code
+                if self.task_mode_var.get():
+                    try:
+                        g = int(g_code)
+                    except ValueError:
+                        raise Exception("G-Code debe ser entero para modo tarea")
+
+                    # Generar linea: <ID><num> [Xv] [Yv] [Zv]
+                    if g < 1000:
+                        head = f"G{g}"
+                    else:
+                        gs = str(g)
+                        head = f"M{gs[4:]}" if len(gs) > 4 else f"M{g}"
+
+                    tokens = [head, f"X{x}", f"Y{y}", f"Z{z}"]
+                    line = " ".join(tokens)
+                    num = self.task_number_var.get().strip() or "1"
+                    prefix = self.task_prefix_var.get()
+                    name = f"{prefix}{num}".strip()
+
+                    res = self.rpc.tarea(["add", name, line])
+                    self.master.after(0, lambda: self.log_msg(f"tarea add [{name}] <- {line} -> {res}"))
+                    return
+
+                # Modo normal: enviar a G_Code
                 print(f"{g_code}, [{posicion}]")
-                res = self.rpc.move_xyz(int(g_code), posicion)#cambiamos la firma, por tanto en wrapper no andaba 
+                res = self.rpc.move_xyz(int(g_code), posicion)
                 print("Respuesta de RPC:", res)
                 self.master.after(0, lambda: self.log_msg(f"move_xyz(G{g_code}, {x},{y},{z}) -> {res}"))
             except Exception as e:
                 msg = f"ERROR move_xyz: {e}"
-                print(msg)  # <-- directo en consola
+                print(msg)
                 self.master.after(0, lambda: self.log_msg(msg))
 
 
@@ -225,6 +277,29 @@ class MainFrame(tk.Frame):
             except Exception as e:
                 self.master.after(0, lambda: self.log_msg(f"ERROR home: {e}"))
         threading.Thread(target=do_home, daemon=True).start()
+
+    # --- Ejecutar tarea (pide número) ---
+    def run_task_dialog(self):
+        try:
+            num = simpledialog.askstring("Ejecutar tarea", "Número de tarea:", parent=self)
+            if num is None:
+                return
+            num = num.strip()
+            if not num:
+                messagebox.showwarning("Dato requerido", "Debes ingresar un número de tarea.")
+                return
+            prefix = self.task_prefix_var.get()
+            name = f"{prefix}{num}".strip()
+
+            def t():
+                try:
+                    res = self.rpc.tarea(["run", name])
+                    self.master.after(0, lambda: self.log_msg(f"Tarea run [{name}] ->\n{res}"))
+                except Exception as e:
+                    self.master.after(0, lambda: self.log_msg(f"ERROR run tarea: {e}"))
+            threading.Thread(target=t, daemon=True).start()
+        except Exception as e:
+            messagebox.showerror("Ejecutar tarea", f"Error: {e}")
 
     def reporte_filtrado(self):
         def t():
