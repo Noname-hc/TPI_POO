@@ -129,7 +129,7 @@ class MainFrame(tk.Frame):
         self.gcode_entry.insert(0, "0")
         self.gcode_entry.grid(row=0, column=7, padx=3)
 
-        move_btn = tk.Button(move_frame, text="Move XYZ", command=self.move_xyz)
+        move_btn = tk.Button(move_frame, text="Send_G_code", command=self.move_xyz)
         move_btn.grid(row=0, column=8, padx=8)
 
         home_btn = tk.Button(move_frame, text="Home", command=self.home)
@@ -196,7 +196,7 @@ class MainFrame(tk.Frame):
         self.btn_help = tk.Button(self.frame_botones, text="Help", command=self.toggle_help_buttons)
         self.btn_help.pack(pady=5)
 
-        self.btn_help_gcode = tk.Button(self.frame_botones, text="Help G_Code", command=self.help_gcode)
+        self.btn_help_gcode = tk.Button(self.frame_botones, text="Help G_Code", command=self.help_move)
         self.btn_help_reporte = tk.Button(self.frame_botones, text="Help Reporte", command=self.help_reporte)
         self.help_visible = False 
         
