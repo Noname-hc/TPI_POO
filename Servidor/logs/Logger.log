@@ -343,3 +343,43 @@
 [2025-11-14 12:11:45],[DEBUG],[MAIN],TX: G91 X20.0 Y170.0 Z120.0
 [2025-11-14 12:11:45],[DEBUG],[MAIN],TX: G28 X20.0 Y170.0 Z120.0
 [2025-11-14 12:11:45],[INFO],[MAIN],Tarea[ prueba2] ejecutada
+[2025-11-14 12:17:09],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:17:18],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:17:18],[INFO],[G_Code],G90
+[2025-11-14 12:17:18],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 12:17:20],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:17:20],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 12:17:20],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:17:20],[INFO],[G_Code],el resultado fue:
+[2025-11-14 12:17:28],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:17:28],[INFO],[G_Code],G90
+[2025-11-14 12:17:28],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 12:17:30],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:17:30],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 12:17:30],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:17:30],[INFO],[G_Code],el resultado fue:
+[2025-11-14 12:17:40],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:17:54],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:34:54],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:35:10],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:35:10],[INFO],[G_Code],G90
+[2025-11-14 12:35:10],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 12:35:12],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:35:12],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 12:35:12],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:35:12],[INFO],[G_Code],el resultado fue:
+[2025-11-14 12:45:27],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:45:58],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:45:58],[INFO],[G_Code],M6
+[2025-11-14 12:45:58],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 12:46:00],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:46:00],[DEBUG],[G_Code],Transmitiendo:M6
+[2025-11-14 12:46:00],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:46:00],[INFO],[G_Code],el resultado fue:
+[2025-11-14 12:46:18],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 12:46:18],[INFO],[G_Code],M7
+[2025-11-14 12:46:18],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 12:46:20],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:46:20],[DEBUG],[G_Code],Transmitiendo:M7
+[2025-11-14 12:46:20],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 12:46:20],[INFO],[G_Code],el resultado fue:
