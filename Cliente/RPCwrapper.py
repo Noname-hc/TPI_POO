@@ -115,16 +115,18 @@ class RobotRPCClient:
         return self.server.Help(tipo)
 
     # --- Tarea RPC wrapper ---
-    def tarea(self, op_and_args):
+    def tarea(self, *op_and_args):
         """
-        Llama al método remoto Tarea. Ejemplos:
+        Llama al método remoto Tarea.
+        Acepta tanto una lista/tupla como parámetros separados.
+        Ejemplos equivalentes:
           rpc.tarea(["add", nombre, linea])
-          rpc.tarea(["run", nombre])
-          rpc.tarea(["show", nombre])
-          rpc.tarea(["list"]) 
-          rpc.tarea(["clear", nombre])
+          rpc.tarea("add", nombre, linea)
         """
-        return self.call("tarea", op_and_args)
+        # Soportar llamada con lista única o varargs
+        if len(op_and_args) == 1 and isinstance(op_and_args[0], (list, tuple)):
+            op_and_args = tuple(op_and_args[0])
+        return self.call("tarea", *op_and_args)
 
     def _revalidar(self):
         if not self.username or not self.password:

@@ -289,3 +289,12 @@
 [2025-11-14 11:37:45],[DEBUG],[G_Code],Transmitiendo:G1
 [2025-11-14 11:37:45],[DEBUG],[G_Code],Recibiendo en bruto: 
 [2025-11-14 11:37:45],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:53:13],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:53:20],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 11:53:20],[INFO],[G_Code],G1
+[2025-11-14 11:53:20],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 11:53:22],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:53:22],[DEBUG],[G_Code],Transmitiendo:G1
+[2025-11-14 11:53:22],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 11:53:22],[INFO],[G_Code],el resultado fue:
+[2025-11-14 11:53:34],[INFO],[Inicio],Usuario autenticadoo: Nico
