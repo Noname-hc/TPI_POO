@@ -383,3 +383,78 @@
 [2025-11-14 12:46:20],[DEBUG],[G_Code],Transmitiendo:M7
 [2025-11-14 12:46:20],[DEBUG],[G_Code],Recibiendo en bruto: 
 [2025-11-14 12:46:20],[INFO],[G_Code],el resultado fue:
+[2025-11-14 16:14:19],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:14:30],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:14:30],[INFO],[G_Code],G90
+[2025-11-14 16:14:32],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 16:14:37],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:14:37],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 16:14:37],[DEBUG],[G_Code],Recibiendo en bruto: INFO: ABSOLUTE MODE ON
+[2025-11-14 16:14:37],[INFO],[G_Code],el resultado fue:
+[2025-11-14 16:14:46],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:14:46],[INFO],[G_Code],G28
+[2025-11-14 16:14:48],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 16:14:53],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:14:53],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-14 16:14:56],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:14:56],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-14 16:23:33],[ERROR],[Inicio],Intento de logueo fallido para usuario: Juli
+[2025-11-14 16:23:40],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:23:52],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:23:52],[INFO],[G_Code],G28
+[2025-11-14 16:23:54],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 16:23:59],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:23:59],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-14 16:24:02],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:24:02],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-14 16:24:21],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:24:21],[INFO],[G_Code],G90
+[2025-11-14 16:24:23],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 16:24:28],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:24:28],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-14 16:24:29],[DEBUG],[G_Code],Recibiendo en bruto: INFO: ABSOLUTE MODE ON
+[2025-11-14 16:24:29],[INFO],[G_Code],el resultado fue:
+[2025-11-14 16:24:48],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:24:48],[INFO],[G_Code],G91
+[2025-11-14 16:24:50],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 16:24:55],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 16:24:55],[DEBUG],[G_Code],Transmitiendo:G91
+[2025-11-14 16:24:55],[DEBUG],[G_Code],Recibiendo en bruto: INFO: RELATIVE MODE ON
+[2025-11-14 16:24:55],[INFO],[G_Code],el resultado fue:
+[2025-11-14 16:25:14],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:25:14],[INFO],[MAIN],Tarea[ tarea nueva1] + G28 X10.0 Y10.0 Z10.0
+[2025-11-14 16:25:28],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:25:28],[INFO],[MAIN],Tarea[ tarea nueva1] + G90 X50.0 Y50.0 Z50.0
+[2025-11-14 16:25:44],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:25:44],[INFO],[MAIN],Tarea[ tarea nueva1] + G91 X10.0 Y10.0 Z10.0
+[2025-11-14 16:25:54],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:25:54],[INFO],[MAIN],Tarea[ tarea nueva1] + M7 X10.0 Y10.0 Z10.0
+[2025-11-14 16:26:16],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:26:26],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:26:40],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:26:54],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:27:12],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:27:27],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:27:29],[DEBUG],[MAIN],Tarea: iniciando comunicacion
+[2025-11-14 16:27:32],[DEBUG],[MAIN],TX: G28 X10.0 Y10.0 Z10.0
+[2025-11-14 16:27:35],[DEBUG],[MAIN],TX: G90 X50.0 Y50.0 Z50.0
+[2025-11-14 16:27:35],[DEBUG],[MAIN],TX: G91 X10.0 Y10.0 Z10.0
+[2025-11-14 16:27:35],[DEBUG],[MAIN],TX: M7 X10.0 Y10.0 Z10.0
+[2025-11-14 16:27:35],[INFO],[MAIN],Tarea[ tarea nueva1] ejecutada
+[2025-11-14 16:27:47],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:27:58],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:03],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:07],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:11],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:29],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:29],[INFO],[MAIN],Tarea[ tarea nueva2] + G28 X0.0 Y170.0 Z120.0
+[2025-11-14 16:28:34],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:34],[INFO],[MAIN],Tarea[ tarea nueva2] + G4 X0.0 Y170.0 Z120.0
+[2025-11-14 16:28:48],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:28:48],[INFO],[MAIN],Tarea[ tarea nueva2] + G90 X0.0 Y100.0 Z150.0
+[2025-11-14 16:29:13],[INFO],[Inicio],Usuario autenticadoo: Nacho
+[2025-11-14 16:29:15],[DEBUG],[MAIN],Tarea: iniciando comunicacion
+[2025-11-14 16:29:18],[DEBUG],[MAIN],TX: G28 X0.0 Y170.0 Z120.0
+[2025-11-14 16:29:21],[DEBUG],[MAIN],TX: G4 X0.0 Y170.0 Z120.0
+[2025-11-14 16:29:21],[DEBUG],[MAIN],TX: G90 X0.0 Y100.0 Z150.0
+[2025-11-14 16:29:21],[INFO],[MAIN],Tarea[ tarea nueva2] ejecutada
