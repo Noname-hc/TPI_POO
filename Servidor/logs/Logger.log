@@ -542,3 +542,82 @@
 [2025-11-14 16:01:18],[INFO],[Inicio],Usuario autenticadoo: Nico
 [2025-11-14 16:01:18],[INFO],[MAIN],Tarea[ tarea 3] + G28 X10.0 Y10.0 Z10.0
 >>>>>>> a0a5e4f56c5f00edeb7c5fd289f3d1682950a621
+[2025-11-15 17:34:53],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:35:37],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:38:33],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:38:33],[INFO],[G_Code],G90
+[2025-11-15 17:38:33],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:38:35],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:38:35],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-15 17:38:35],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:38:35],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:38:40],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:38:40],[INFO],[G_Code],G90
+[2025-11-15 17:38:40],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:38:42],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:38:42],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-15 17:38:42],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:38:42],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:38:43],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:38:43],[INFO],[G_Code],G90
+[2025-11-15 17:38:43],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:38:45],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:38:45],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-15 17:38:45],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:38:45],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:40:59],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:42:01],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:42:01],[INFO],[G_Code],G90
+[2025-11-15 17:42:01],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:42:03],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:42:03],[DEBUG],[G_Code],Transmitiendo:G90
+[2025-11-15 17:42:03],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:42:03],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:42:11],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:42:11],[INFO],[G_Code],G28
+[2025-11-15 17:42:11],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:42:13],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:42:13],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-15 17:42:13],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:42:13],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:42:42],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:42:42],[INFO],[G_Code],M3
+[2025-11-15 17:42:42],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:42:44],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:42:44],[DEBUG],[G_Code],Transmitiendo:M3
+[2025-11-15 17:42:44],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:42:44],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:43:15],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:43:15],[INFO],[G_Code],G91
+[2025-11-15 17:43:15],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-15 17:43:17],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:43:17],[DEBUG],[G_Code],Transmitiendo:G91
+[2025-11-15 17:43:17],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-15 17:43:17],[INFO],[G_Code],el resultado fue:
+[2025-11-15 17:44:07],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:44:07],[DEBUG],[MAIN],Tarea: iniciando comunicacion
+[2025-11-15 17:44:09],[DEBUG],[MAIN],TX: G90 X0.0 Y170.0 Z120.0
+[2025-11-15 17:44:09],[DEBUG],[MAIN],TX: G90 X0.0 Y170.0 Z150.0
+[2025-11-15 17:44:09],[DEBUG],[MAIN],TX: G90 X0.0 Y140.0 Z150.0
+[2025-11-15 17:44:09],[INFO],[MAIN],Tarea[ tarea 1] ejecutada
+[2025-11-15 17:45:02],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:45:02],[DEBUG],[MAIN],Tarea: iniciando comunicacion
+[2025-11-15 17:45:04],[DEBUG],[MAIN],TX: G90 X0.0 Y170.0 Z120.0
+[2025-11-15 17:45:04],[DEBUG],[MAIN],TX: G4 X0.0 Y170.0 Z120.0
+[2025-11-15 17:45:04],[DEBUG],[MAIN],TX: M3 X0.0 Y170.0 Z120.0
+[2025-11-15 17:45:04],[DEBUG],[MAIN],TX: M6 X0.0 Y170.0 Z120.0
+[2025-11-15 17:45:04],[DEBUG],[MAIN],TX: G91 X20.0 Y170.0 Z120.0
+[2025-11-15 17:45:04],[DEBUG],[MAIN],TX: G28 X20.0 Y170.0 Z120.0
+[2025-11-15 17:45:04],[INFO],[MAIN],Tarea[ prueba2] ejecutada
+[2025-11-15 17:47:21],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:47:21],[INFO],[MAIN],Tarea[ Homing_Turn_Off1] + G28 X0 Y0 Z0
+[2025-11-15 17:47:59],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:47:59],[INFO],[MAIN],Tarea[ Homing_Turn_Off1] + M5 X0 Y0 Z0
+[2025-11-15 17:48:29],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:48:29],[INFO],[MAIN],Tarea[ Homing_Turn_Off1] + M18 X0 Y0 Z0
+[2025-11-15 17:48:45],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-15 17:48:45],[DEBUG],[MAIN],Tarea: iniciando comunicacion
+[2025-11-15 17:48:47],[DEBUG],[MAIN],TX: G28 X0 Y0 Z0
+[2025-11-15 17:48:47],[DEBUG],[MAIN],TX: M5 X0 Y0 Z0
+[2025-11-15 17:48:47],[DEBUG],[MAIN],TX: M18 X0 Y0 Z0
+[2025-11-15 17:48:47],[INFO],[MAIN],Tarea[ Homing_Turn_Off1] ejecutada
