@@ -81,8 +81,7 @@ void Inicio::execute(XmlRpcValue& params, XmlRpcValue& result){
         }
         pclose(fp);
     }
-
-    // Fallback al comportamiento previo si la BD no existe o la consulta falló
+    
     if(!auth_ok){
         if(usuario == "Nacho" && contrasena == "123"){
             nivel = static_cast<int>(UserLvL::usuario);
