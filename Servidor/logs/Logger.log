@@ -383,6 +383,7 @@
 [2025-11-14 12:46:20],[DEBUG],[G_Code],Transmitiendo:M7
 [2025-11-14 12:46:20],[DEBUG],[G_Code],Recibiendo en bruto: 
 [2025-11-14 12:46:20],[INFO],[G_Code],el resultado fue:
+<<<<<<< HEAD
 [2025-11-14 16:14:19],[INFO],[Inicio],Usuario autenticadoo: Nico
 [2025-11-14 16:14:30],[INFO],[Inicio],Usuario autenticadoo: Nico
 [2025-11-14 16:14:30],[INFO],[G_Code],G90
@@ -458,3 +459,86 @@
 [2025-11-14 16:29:21],[DEBUG],[MAIN],TX: G4 X0.0 Y170.0 Z120.0
 [2025-11-14 16:29:21],[DEBUG],[MAIN],TX: G90 X0.0 Y100.0 Z150.0
 [2025-11-14 16:29:21],[INFO],[MAIN],Tarea[ tarea nueva2] ejecutada
+=======
+[2025-11-14 15:45:07],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:45:18],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:45:49],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:45:49],[INFO],[G_Code],G28
+[2025-11-14 15:45:49],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:45:51],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:45:51],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-14 15:45:51],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:45:51],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:45:57],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:45:57],[INFO],[G_Code],G28
+[2025-11-14 15:45:59],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:46:04],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:46:04],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-14 15:46:07],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:46:07],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-14 15:46:07],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:46:07],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:47:01],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:47:01],[INFO],[G_Code],G28
+[2025-11-14 15:47:03],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:47:08],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:47:08],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-14 15:47:11],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:47:11],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-14 15:47:15],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:47:15],[INFO],[G_Code],G28
+[2025-11-14 15:47:17],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:47:22],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:47:22],[DEBUG],[G_Code],Transmitiendo:G28
+[2025-11-14 15:47:25],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:47:25],[INFO],[G_Code],el resultado fue:INFO: HOMING COMPLETE
+[2025-11-14 15:53:15],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:53:35],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:53:35],[INFO],[G_Code],G0 X150.000000 Y170.000000 Z120.000000
+[2025-11-14 15:53:37],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:53:42],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:53:42],[DEBUG],[G_Code],Transmitiendo:G0 X150.000000 Y170.000000 Z120.000000
+[2025-11-14 15:53:42],[DEBUG],[G_Code],Recibiendo en bruto: INFO: 
+[2025-11-14 15:53:42],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:54:12],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:54:12],[INFO],[G_Code],M107
+[2025-11-14 15:54:14],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:54:19],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:54:19],[DEBUG],[G_Code],Transmitiendo:M107
+[2025-11-14 15:54:19],[DEBUG],[G_Code],Recibiendo en bruto: INFO: FAN DISABLED
+[2025-11-14 15:54:19],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:54:38],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:54:38],[INFO],[G_Code],M6
+[2025-11-14 15:54:40],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:54:45],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:54:45],[DEBUG],[G_Code],Transmitiendo:M6
+[2025-11-14 15:54:45],[DEBUG],[G_Code],Recibiendo en bruto: ERROR: LASER ENABLED NOT IMPLEMENTED
+[2025-11-14 15:54:45],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:54:45],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:54:45],[INFO],[G_Code],M6
+[2025-11-14 15:54:47],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:54:52],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:54:52],[DEBUG],[G_Code],Transmitiendo:M6
+[2025-11-14 15:54:53],[DEBUG],[G_Code],Recibiendo en bruto: ERROR: LASER ENABLED NOT IMPLEMENTED
+[2025-11-14 15:54:53],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:55:13],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:55:13],[INFO],[G_Code],M1
+[2025-11-14 15:55:15],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:55:20],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:55:20],[DEBUG],[G_Code],Transmitiendo:M1
+[2025-11-14 15:55:20],[DEBUG],[G_Code],Recibiendo en bruto: ERROR: PUMP ENABLED NOT IMPLEMENTED
+[2025-11-14 15:55:20],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:55:20],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:55:20],[INFO],[G_Code],M1
+[2025-11-14 15:55:22],[DEBUG],[G_Code],iniciando comunicacion
+[2025-11-14 15:55:27],[DEBUG],[G_Code],Recibiendo en bruto: 
+[2025-11-14 15:55:27],[DEBUG],[G_Code],Transmitiendo:M1
+[2025-11-14 15:55:27],[DEBUG],[G_Code],Recibiendo en bruto: ERROR: PUMP ENABLED NOT IMPLEMENTED
+[2025-11-14 15:55:27],[INFO],[G_Code],el resultado fue:
+[2025-11-14 15:56:10],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:56:10],[INFO],[MAIN],Tarea[ tarea 3] + G90 X100.0 Y100.0 Z100.0
+[2025-11-14 15:56:26],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 15:56:26],[INFO],[MAIN],Tarea[ tarea 3] + G91 X10.0 Y10.0 Z10.0
+[2025-11-14 16:01:18],[INFO],[Inicio],Usuario autenticadoo: Nico
+[2025-11-14 16:01:18],[INFO],[MAIN],Tarea[ tarea 3] + G28 X10.0 Y10.0 Z10.0
+>>>>>>> a0a5e4f56c5f00edeb7c5fd289f3d1682950a621

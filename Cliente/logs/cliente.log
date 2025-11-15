@@ -90,8 +90,12 @@
 [2025-11-14 12:16:47,546]-[INFO]-[__main__]-Cliente creado
 [2025-11-14 12:34:47,460]-[INFO]-[__main__]-Cliente creado
 [2025-11-14 12:45:16,799]-[INFO]-[__main__]-Cliente creado
+<<<<<<< HEAD
 [2025-11-14 15:51:47,064]-[INFO]-[__main__]-Cliente creado
 [2025-11-14 15:53:01,978]-[INFO]-[__main__]-Cliente creado
 [2025-11-14 16:13:49,208]-[INFO]-[__main__]-Cliente creado
 [2025-11-14 16:21:19,753]-[INFO]-[__main__]-Cliente creado
 [2025-11-14 16:23:15,040]-[INFO]-[__main__]-Cliente creado
+=======
+[2025-11-14 15:44:04,632]-[INFO]-[__main__]-Cliente creado
+>>>>>>> a0a5e4f56c5f00edeb7c5fd289f3d1682950a621
