@@ -259,6 +259,7 @@ GUI_Consola::GUI_Consola() = default;
 void GUI_Consola::setUserCsv(const std::string& usuarios_csv) { usuarios_csv_ = usuarios_csv; }
 void GUI_Consola::setLogCsv(const std::string& log_csv)       { log_csv_ = log_csv; }
 void GUI_Consola::setServer(std::unique_ptr<IServer> server)  { server_ = std::move(server); }
+void GUI_Consola::setBaseDir(const std::string& base_dir)     { base_dir_ = base_dir; }
 
 int GUI_Consola::run() {
     // Autenticación por XML-RPC (Inicio); sin dependencia de CSV/SQLite
@@ -286,8 +287,14 @@ int GUI_Consola::run() {
         imprimir_menu();
         std::cout << "\nTip: escribi 'ui' o 'botones' para abrir el menu de botones." << '\n';
 
-        // Lanzar GUI gráfica de botones (Tkinter)
-        lanzar_gui_botones(current);
+        // Lanzar GUI gráfica según rol:
+        //  - Admin: interfaz completa reutilizando la UI del cliente (gui_admin.py)
+        //  - Operador: GUI de botones simple (gui_botones.py)
+        if (current.rol == Rol::Admin) {
+            lanzar_gui_admin(current);
+        } else {
+            lanzar_gui_botones(current);
+        }
         std::cout << "\nSesion finalizada.\n";
         continue; // volver al login
         
@@ -613,7 +620,7 @@ static std::string sh_quote(const std::string& s){
     return out;
 }
 
-void GUI_Consola::lanzar_gui_botones(const User& current) {
+void GUI_Consola::lanzar_gui_admin(const User& current) {
     if(!server_) { std::cout << "[ERROR] servidor no configurado\n"; return; }
     auto ep = server_->endpoint();
     std::string host = ep.first; int port = ep.second;
@@ -624,13 +631,28 @@ void GUI_Consola::lanzar_gui_botones(const User& current) {
         mostrar_menu_botones(current);
         return;
     }
-    // Ejecutar script Tkinter
-    std::string cmd = std::string("python3 gui_botones.py ")
+
+    // Construir ruta al script gui_admin.py usando base_dir_ si está disponible
+    std::filesystem::path script_path;
+    if (!base_dir_.empty()) {
+        script_path = std::filesystem::path(base_dir_) / "gui_admin.py";
+    } else {
+        script_path = std::filesystem::path("gui_admin.py");
+    }
+
+    // Ejecutar script Tkinter admin que reutiliza la UI del cliente
+    std::string cmd = std::string("python3 ") + sh_quote(script_path.string()) + " "
         + sh_quote(host) + " " + std::to_string(port) + " "
         + sh_quote(current.id) + " " + sh_quote(current.clave);
-    std::cout << "Lanzando GUI de botones...\n";
+    std::cout << "Lanzando GUI de administrador...\n";
     int rc = std::system(cmd.c_str());
-    if(rc != 0){ std::cout << "GUI terminó con codigo: " << rc << "\n"; }
+    if(rc != 0){ std::cout << "GUI admin terminó con codigo: " << rc << "\n"; }
+}
+
+void GUI_Consola::lanzar_gui_botones(const User& current) {
+    // Versión solo consola: muestra el menú de botones textual.
+    // Ya no se lanza ninguna GUI Tkinter aquí.
+    mostrar_menu_botones(current);
 }
 
 #if !defined(NO_GUI_CONSOLA_MAIN)
@@ -638,6 +660,18 @@ void GUI_Consola::lanzar_gui_botones(const User& current) {
 // Uso: ./consola_servidor usuarios.csv log.csv [HOST] [PORT]
 int main(int argc, char* argv[]) {
     GUI_Consola app;
+    // Intentar deducir el directorio base (donde está el binario)
+    try {
+        if (argc >= 1 && argv[0]) {
+            std::filesystem::path exe(argv[0]);
+            std::filesystem::path dir = exe.parent_path();
+            if (!dir.empty()) {
+                app.setBaseDir(dir.string());
+            }
+        }
+    } catch(...) {
+        // Si falla, se deja base_dir_ vacío y se usará ruta relativa.
+    }
     if(argc >= 2) app.setUserCsv(argv[1]);
     if(argc >= 3) app.setLogCsv(argv[2]);
     if(argc >= 5) {

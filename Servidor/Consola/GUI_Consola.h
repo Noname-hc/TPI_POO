@@ -67,6 +67,8 @@ public:
     void setUserCsv(const std::string& usuarios_csv);
     void setLogCsv(const std::string& log_csv);
     void setServer(std::unique_ptr<IServer> server);
+    // Directorio base donde está el ejecutable / scripts auxiliares
+    void setBaseDir(const std::string& base_dir);
 
     // Run
     int run(); // 0 OK, !=0 error de setup
@@ -90,10 +92,13 @@ private:
     void mostrar_menu_botones(const User& current);
     // Lanzar GUI Tkinter que muestra botones y llama XML-RPC
     void lanzar_gui_botones(const User& current);
+    // Lanzar GUI admin que reutiliza la interfaz del cliente (solo admin)
+    void lanzar_gui_admin(const User& current);
 
     // estado
     std::string usuarios_csv_ = "usuarios.csv";
     std::string log_csv_      = "log_operaciones.csv";
+    std::string base_dir_;    // carpeta donde reside el binario / scripts
     UserDB db_;
     std::unique_ptr<IServer> server_;
     std::unique_ptr<CsvLogger> logger_;
